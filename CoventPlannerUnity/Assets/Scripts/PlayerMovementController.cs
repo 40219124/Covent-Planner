@@ -125,6 +125,17 @@ public class PlayerMovementController : MonoBehaviour
             return;
         }
         Vector2 posPlusDir = (Vector2)transform.position + TravelDir;
+        RaycastHit2D hit = Physics2D.Raycast(posPlusDir, Vector2.zero);
+        if(hit.collider != null)
+        {
+            Debug.Log("Hit!");
+            TravelTarget = null;
+            return;
+        }
+        else
+        {
+            Debug.Log("Miss!");
+        }
         TravelTarget = new Vector2Int(Mathf.RoundToInt(posPlusDir.x), Mathf.RoundToInt(posPlusDir.y));
         // ~~~ Check a grid of empty/not-empty squares for validity
     }
