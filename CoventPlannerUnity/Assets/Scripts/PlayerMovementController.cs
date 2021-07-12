@@ -126,7 +126,7 @@ public class PlayerMovementController : MonoBehaviour
         }
         Vector2 posPlusDir = (Vector2)transform.position + TravelDir;
         TravelTarget = new Vector2Int(Mathf.RoundToInt(posPlusDir.x), Mathf.RoundToInt(posPlusDir.y));
-        // Check a grid of empty/not-empty squares for validity
+        // ~~~ Check a grid of empty/not-empty squares for validity
     }
 
     private float TranslateCharacter(float dt)
