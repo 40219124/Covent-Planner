@@ -20,6 +20,7 @@ public class TransitionManager : MonoBehaviour
     }
 
     public List<Transform> BattleOpeningTransitions = new List<Transform>();
+    public List<Transform> BattleClosingTransitions = new List<Transform>();
 
     TransitionController ActiveTransition;
 
@@ -31,33 +32,55 @@ public class TransitionManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if(ActiveTransition == null)
+            if(IsBusy)
             {
                 return;
             }
-            Destroy(ActiveTransition.gameObject);
-            ActiveTransition = null;
+            CleanUpTransition();
         }
     }
 
     public void PlayBattleOpeningTransition()
     {
-        if(ActiveTransition != null)
+        if(IsBusy)
         {
             return;
         }
-        StartCoroutine(OpeningCoroutine());
+        StartCoroutine(OpeningCoroutine(BattleOpeningTransitions));
     }
 
-    private IEnumerator OpeningCoroutine()
+    private IEnumerator OpeningCoroutine(List<Transform> TransitionList)
     {
-        ActiveTransition = Instantiate(BattleOpeningTransitions[Random.Range(0, BattleOpeningTransitions.Count)], transform).GetComponent<TransitionController>();
+        ActiveTransition = Instantiate(TransitionList[Random.Range(0, TransitionList.Count)], transform).GetComponent<TransitionController>();
         yield return null;
         ActiveTransition.StartAnim();
     }
 
     public void PlayBattleClosingTransition()
     {
+        if (IsBusy)
+        {
+            return;
+        }
+        StartCoroutine(OpeningCoroutine(BattleOpeningTransitions));
+    }
 
+    public void CleanUpTransition()
+    {
+        Destroy(ActiveTransition.gameObject);
+        ActiveTransition = null;
+    }
+
+    public void ForceTerminate()
+    {
+        if (IsBusy)
+        {
+            CleanUpTransition();
+        }
+    }
+
+    public bool IsBusy
+    {
+        get { return ActiveTransition != null; }
     }
 }
