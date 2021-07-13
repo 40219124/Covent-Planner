@@ -50,3 +50,9 @@ TagManager:
   - name: Foreground
     uniqueID: 230953487
     locked: 0
+  - name: Banner
+    uniqueID: 2586231761
+    locked: 0
+  - name: Wave
+    uniqueID: 3105536185
+    locked: 0
