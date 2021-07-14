@@ -56,3 +56,12 @@ TagManager:
   - name: Wave
     uniqueID: 3105536185
     locked: 0
+  - name: BattleBackground
+    uniqueID: 2059202315
+    locked: 0
+  - name: BattleCharacter
+    uniqueID: 2094814001
+    locked: 0
+  - name: BattleUI
+    uniqueID: 2289801735
+    locked: 0
