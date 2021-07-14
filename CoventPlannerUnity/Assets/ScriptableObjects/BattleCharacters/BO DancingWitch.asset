@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9683e3ba60ca7934087f405a9ebbaead, type: 3}
+  m_Name: BO DancingWitch
+  m_EditorClassIdentifier: 
+  Name: Dancing Witch
+  Sprite: {fileID: 0}
+  OpeningText: The dancing witch teeters over to you.
+  ClosingText: She has become lost in the music again.
+  Responses:
+  - DialogueCard: {fileID: 11400000, guid: 00a6ba9df6e52264eb5c7442d2b798cd, type: 2}
+    Response: I like your style!
+    Score: 1
