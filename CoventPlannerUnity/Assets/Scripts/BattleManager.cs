@@ -95,15 +95,22 @@ public class BattleManager : MonoBehaviour
     {
         float timeElapsed = 0.0f;
 
-        while (timeElapsed / TimePerChar < text.Length)
+        int lastProgress = -1;
+        while (lastProgress < text.Length)
         {
+            yield return null;
             if (Input.anyKey && timeElapsed > 0.3f)
             {
                 break;
             }
             timeElapsed += Time.deltaTime;
-            textbox.text = text.Substring(0, (int)(timeElapsed / TimePerChar));
-            yield return null;
+            int progress = (int)(timeElapsed / TimePerChar);
+            if(progress == lastProgress)
+            {
+                continue;
+            }
+            textbox.text = text.Substring(0, progress) + "<color=#00000000>" + text.Substring(progress);
+            lastProgress = progress;
         }
 
         textbox.text = text;
