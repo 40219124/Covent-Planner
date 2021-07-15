@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: BO DancingWitch
   m_EditorClassIdentifier: 
   Name: Dancing Witch
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 865a7cc74b3c94d49b3b7f37dc5ff498, type: 3}
   OpeningText: The dancing witch teeters over to you.
+  VibeText: She doesn't care much for serious conversation.
   ClosingText: She has become lost in the music again.
   Responses:
   - DialogueCard: {fileID: 11400000, guid: 00a6ba9df6e52264eb5c7442d2b798cd, type: 2}

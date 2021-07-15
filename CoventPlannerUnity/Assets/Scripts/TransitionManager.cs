@@ -32,7 +32,7 @@ public class TransitionManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if(IsBusy)
+            if(!IsBusy)
             {
                 return;
             }

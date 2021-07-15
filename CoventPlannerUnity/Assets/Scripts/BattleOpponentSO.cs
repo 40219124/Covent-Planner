@@ -18,6 +18,7 @@ public class BattleOpponentSO : ScriptableObject
     public Sprite Sprite;
 
     public string OpeningText;
+    public string VibeText;
     public string ClosingText;
 
     public List<DialogueResponse> Responses;
