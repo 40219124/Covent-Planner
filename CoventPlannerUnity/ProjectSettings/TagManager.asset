@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Render Texture
   - 
   - 
   - 
@@ -59,9 +59,18 @@ TagManager:
   - name: BattleBackground
     uniqueID: 2059202315
     locked: 0
+  - name: BattleText
+    uniqueID: 701133141
+    locked: 0
   - name: BattleCharacter
     uniqueID: 2094814001
     locked: 0
-  - name: BattleUI
+  - name: BattleCard
     uniqueID: 2289801735
+    locked: 0
+  - name: BattleFrame
+    uniqueID: 2326748391
+    locked: 0
+  - name: RenderTexture
+    uniqueID: 370637431
     locked: 0

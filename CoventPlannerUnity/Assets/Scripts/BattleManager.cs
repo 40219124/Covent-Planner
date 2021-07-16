@@ -5,6 +5,9 @@ using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
+    [SerializeField]
+    private Transform SceneContainer;
+
     public Transform BattleCharacterMark;
     public Transform BattleCharacterWings;
     public SpriteRenderer BattleCharacter;
