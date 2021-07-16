@@ -32,7 +32,7 @@ public class GameplayAdmin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameState = eGameState.Paused | eGameState.Party;
+        GameState = eGameState.Paused | eGameState.Battle;
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.PartyScene);
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.BattleScene);
     }

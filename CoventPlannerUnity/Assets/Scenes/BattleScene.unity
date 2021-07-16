@@ -123,55 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &55931167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 421916670}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &55931168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 421916670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &55931169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55931167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &55931170
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55931167}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
 --- !u!1 &126312575
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,55 +194,11 @@ Transform:
   m_Father: {fileID: 1998207752}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &232529384 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 1106649609}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &232529385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 1106649609}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &232529386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232529384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &232529387
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232529384}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
 --- !u!1001 &279795148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,14 +253,6 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
@@ -523,14 +427,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1001 &421916670
@@ -587,14 +483,6 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
@@ -704,55 +592,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4135612178331909524, guid: 6e700165ab428aa40870feed451a236f, type: 3}
   m_PrefabInstance: {fileID: 4135612178050060613}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &897441446 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 1334451361}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &897441447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 1334451361}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &897441448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897441446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &897441449
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897441446}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
 --- !u!1 &1033560376
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,14 +734,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1001 &1142471889
@@ -955,65 +791,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
---- !u!1 &1198022199 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 1449366032}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1198022200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 1449366032}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1198022201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198022199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &1198022202
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198022199}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
 --- !u!1001 &1334451361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1069,65 +853,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
---- !u!1 &1361666361 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 1654311629}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1361666362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 1654311629}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1361666363
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361666361}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
---- !u!114 &1361666364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361666361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
 --- !u!1 &1404174926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,14 +947,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1001 &1488331333
@@ -1280,14 +1004,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1 &1507503821
@@ -1342,55 +1058,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1539676525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 338273608}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1539676526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 338273608}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1539676527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539676525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &1539676528
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539676525}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
 --- !u!1 &1567141294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,14 +1189,6 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255449762181325981, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
@@ -1662,104 +1326,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743121190}
   m_CullTransparentMesh: 1
---- !u!1 &1762918975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 279795148}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1762918976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 279795148}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1762918977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762918975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &1762918978
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762918975}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
---- !u!1 &1807017134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 1142471889}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1807017135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 1142471889}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1807017136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807017134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &1807017137
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807017134}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
 --- !u!1 &1998207751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,55 +1525,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2093781042 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
-  m_PrefabInstance: {fileID: 1488331333}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2093781043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
   m_PrefabInstance: {fileID: 1488331333}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2093781044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093781042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6965ed6a98ad64e9da37609ac84121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardDetails: {fileID: 0}
---- !u!61 &2093781045
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093781042}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
 --- !u!1001 &4135612178050060613
 PrefabInstance:
   m_ObjectHideFlags: 0

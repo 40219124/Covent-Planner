@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-    public class DialogueResponse
+public class DialogueResponse
 {
     public DialogueCardSO DialogueCard;
-    public string Response;
-    public int Score;
+    public eDialogueResponse ResponseTier;
+    public string ResponseText;
 }
 
 [CreateAssetMenu(fileName = "BattleOpponent", menuName = "ScriptableObjects/BattleOpponentSO")]
@@ -22,4 +22,19 @@ public class BattleOpponentSO : ScriptableObject
     public string ClosingText;
 
     public List<DialogueResponse> Responses;
+
+    public eDialogueResponse GetCardTier(DialogueCardSO card)
+    {
+        return Responses.Find(x => x.DialogueCard == card).ResponseTier;
+    }
+
+    public string GetResponseText(DialogueCardSO card)
+    {
+        return Responses.Find(x => x.DialogueCard == card).ResponseText;
+    }
+
+    public DialogueResponse GetFullResponse(DialogueCardSO card)
+    {
+        return Responses.Find(x => x.DialogueCard == card);
+    }
 }

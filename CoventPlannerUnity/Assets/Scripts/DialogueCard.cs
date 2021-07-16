@@ -54,14 +54,32 @@ public class DialogueCard : MonoBehaviour
 
     public void ShowMatchup(BattleOpponentSO opponent)
     {
-        int score = opponent.Responses.Find(x => x.DialogueCard == CardDetails).Score;
+        eDialogueResponse score = opponent.GetCardTier(CardDetails);
         // ~~~ display helpful information
     }
 
     public void SetUsable(bool state)
     {
         IsUsable = state;
-        SpriteRenderer.color = Color.grey;
+        if (state == false)
+        {
+            SpriteRenderer.color = Color.grey;
+        }
+        else
+        {
+            SpriteRenderer.color = Color.white;
+        }
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        if (IsUsable)
+        {
+            if (BattleManager.Instance.PlayCard(this))
+            {
+                SetUsable(false);
+            }
+        }
     }
 
     private void OnMouseEnter()

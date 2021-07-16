@@ -19,5 +19,5 @@ MonoBehaviour:
   ClosingText: She has become lost in the music again.
   Responses:
   - DialogueCard: {fileID: 11400000, guid: 00a6ba9df6e52264eb5c7442d2b798cd, type: 2}
-    Response: I like your style!
-    Score: 1
+    ResponseTier: 1
+    ResponseText: I like your style!

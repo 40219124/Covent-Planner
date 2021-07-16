@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum eDialogueResponse { none = -1, red = 0, orange = 1, green = 2 }
+
 public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
@@ -26,6 +28,9 @@ public class BattleManager : MonoBehaviour
     private BattleOpponentSO Opponent;
 
     private GameplayAdmin.eGameState ThisState = GameplayAdmin.eGameState.Battle;
+
+    public bool WaitingForCard { get; private set; }
+    DialogueCard PlayedCard = null;
 
     private void Awake()
     {
@@ -71,6 +76,9 @@ public class BattleManager : MonoBehaviour
         BattleCharacter.transform.position = BattleCharacterWings.position;
 
         DialogueText.text = "";
+
+        WaitingForCard = false;
+        PlayedCard = null;
     }
 
     public void PrepareBattle(BattleOpponentSO opponent)
@@ -90,6 +98,7 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator RunBattle()
     {
+        int battleScore = 0;
         yield return StartCoroutine(SlideCharacter(SlideInProgress));
         // ~~~ present text, etc
         yield return TextScroll(DialogueText, Opponent.OpeningText);
@@ -99,18 +108,27 @@ public class BattleManager : MonoBehaviour
         {
 
             yield return TextScroll(DialogueText, Opponent.VibeText);
+            WaitingForCard = true;
+            while (PlayedCard == null)
+            {
+                yield return null;
+            }
+            WaitingForCard = false;
+            // ~~~ play card
+            DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails);
+            battleScore += (int)response.ResponseTier;
+            yield return TextScroll(DialogueText, response.ResponseText);
             yield return StartCoroutine(WaitForUser());
 
-            // ~~~ play card
-            // ~~~ dialogue response
-            // ~~~ wait user
-
+            PlayedCard = null;
         }
 
         yield return TextScroll(DialogueText, Opponent.ClosingText);
         yield return StartCoroutine(WaitForUser());
 
         yield return StartCoroutine(SlideCharacter(SlideOutProgress));
+
+        Debug.Log($"Battle score {battleScore}");
 
         CleanTools();
 
@@ -154,6 +172,18 @@ public class BattleManager : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    /// <summary>
+    /// Return true if the card was played
+    /// </summary>
+    public bool PlayCard(DialogueCard card)
+    {
+        if (WaitingForCard)
+        {
+            PlayedCard = card;
+        }
+        return WaitingForCard;
     }
 
     private IEnumerator SlideCharacter(System.Func<float, float> progressCalculator)
