@@ -464,10 +464,10 @@ PolygonCollider2D:
       - {x: -8, y: -4.5}
       - {x: 8, y: -4.5}
       - {x: 8, y: 4.5}
-    - - {x: -5, y: 3.5}
-      - {x: 5, y: 3.5}
-      - {x: 5, y: -3.5}
-      - {x: -5, y: -3.5}
+    - - {x: -6, y: 3.5}
+      - {x: 6, y: 3.5}
+      - {x: 6, y: -3.5}
+      - {x: -6, y: -3.5}
 --- !u!1001 &338273608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1587,8 +1587,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hi there
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b3d303e82e41c6c4593fb0a811e17f0e, type: 2}
+  m_sharedMaterial: {fileID: -1542376130269175100, guid: b3d303e82e41c6c4593fb0a811e17f0e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1612,8 +1612,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.4
-  m_fontSizeBase: 0.4
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
