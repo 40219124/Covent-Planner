@@ -5,6 +5,8 @@ using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
+    public static BattleManager Instance { get; private set; }
+
     [SerializeField]
     private Transform SceneContainer;
 
@@ -22,10 +24,31 @@ public class BattleManager : MonoBehaviour
 
     public BattleOpponentSO DebugOpponent;
     private BattleOpponentSO Opponent;
+
+    private GameplayAdmin.eGameState ThisState = GameplayAdmin.eGameState.Battle;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogError($"Duplicate {GetType()}");
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
+        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
         CleanTools();
+    }
+
+    public void SetActive(bool state)
+    {
+        SceneContainer.gameObject.SetActive(state);
     }
 
     // Update is called once per frame
@@ -108,7 +131,7 @@ public class BattleManager : MonoBehaviour
             }
             timeElapsed += Time.deltaTime;
             int progress = (int)(timeElapsed / TimePerChar);
-            if(progress == lastProgress)
+            if (progress == lastProgress)
             {
                 continue;
             }

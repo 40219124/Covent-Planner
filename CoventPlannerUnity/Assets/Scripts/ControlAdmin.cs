@@ -33,9 +33,9 @@ public class ControlAdmin : MonoBehaviour
 
     public void LoadScene(eSceneName scene)
     {
-        if (SceneManager.GetSceneByName(scene.ToString()) == null)
+        if (!SceneManager.GetSceneByName(scene.ToString()).IsValid())
         {
-            SceneManager.LoadSceneAsync(scene.ToString());
+            SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Additive);
         }
     }
 
