@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4212867}
   - component: {fileID: 4212868}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 274339996}
   - component: {fileID: 274339998}
   - component: {fileID: 274339997}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2209,7 +2209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1230333588}
   - component: {fileID: 1230333587}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2256,7 +2256,7 @@ GameObject:
   - component: {fileID: 1608088013}
   - component: {fileID: 1608088012}
   - component: {fileID: 1608088011}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Impassable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4313,7 +4313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055617961}
   - component: {fileID: 2055617960}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerMover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4355,6 +4355,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3083204014826039807, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083204014849695612, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083204014849695615, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3083204014935114465, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4402,6 +4414,22 @@ PrefabInstance:
     - target: {fileID: 3083204014935114466, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
       propertyPath: m_Name
       value: CameraSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083204014935114466, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083204015007636123, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083204015007636127, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083204015462101339, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49d9b2def0a7d904b9447514750bbf8d, type: 3}
