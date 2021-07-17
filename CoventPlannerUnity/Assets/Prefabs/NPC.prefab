@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1663415182652253652}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCType: 0
+  FlipSprite: 0
   AnimLib: {fileID: 11400000, guid: 055529247961ed147a98b5578cb1c2a1, type: 2}
+  BattleLib: {fileID: 11400000, guid: d047c1e38fd5dc64f8bea28682cf95ab, type: 2}
 --- !u!95 &1663415182652253655
 Animator:
   serializedVersion: 3

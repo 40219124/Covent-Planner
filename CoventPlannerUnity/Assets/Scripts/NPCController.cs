@@ -26,6 +26,10 @@ public class NPCController : MonoBehaviour
 
     [SerializeField]
     private NPCAnimLibrarySO AnimLib;
+    [SerializeField]
+    private BattleOppLibrarySO BattleLib;
+
+    private BattleOpponentSO BattleDetails = null;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,12 @@ public class NPCController : MonoBehaviour
             Vector3 scale = spriteT.localScale;
             scale.x *= -1;
             spriteT.localScale = scale;
+        }
+
+        BattleDetails = BattleLib.GetOpponentObject(NPCType);
+        if(BattleDetails == null)
+        {
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 
