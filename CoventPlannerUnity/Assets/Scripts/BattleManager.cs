@@ -147,6 +147,7 @@ public class BattleManager : MonoBehaviour
         CleanTools();
 
         // ~~~ Transition out
+        GameplayAdmin.Instance.ReturnToParty();
     }
 
     private IEnumerator TextScroll(TextMeshProUGUI textbox, string text)

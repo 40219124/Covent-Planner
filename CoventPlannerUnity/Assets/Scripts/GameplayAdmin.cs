@@ -58,6 +58,12 @@ public class GameplayAdmin : MonoBehaviour
         BattleManager.Instance.PrepareBattle(opponent);
     }
 
+    public void ReturnToParty()
+    {
+        SwapState(eGameState.Party, eGameState.Battle);
+        StateChangeActivations?.Invoke();
+    }
+
     private void SwapState(eGameState newState, eGameState oldState)
     {
         GameState &= ~oldState;
