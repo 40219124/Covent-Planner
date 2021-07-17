@@ -126,7 +126,7 @@ public class PlayerMovementController : MonoBehaviour
         }
         Vector2 posPlusDir = (Vector2)transform.position + TravelDir;
         RaycastHit2D hit = Physics2D.Raycast(posPlusDir, Vector2.zero);
-        if(hit.collider != null && hit.collider.tag.Equals("NoMove"))
+        if(hit.collider != null && hit.collider.CompareTag("NoMove"))
         {
             Debug.Log("Hit!");
             TravelTarget = null;
