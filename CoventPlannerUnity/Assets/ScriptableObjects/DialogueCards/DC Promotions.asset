@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 792e5d7dd094c974bbe09b80fb8357d2, type: 3}
-  m_Name: DC JokePlaceholder
+  m_Name: DC Promotions
   m_EditorClassIdentifier: 
-  Title: Joke
-  Sprite: {fileID: 21300000, guid: 62825e95232ed39449115bd2168bbe43, type: 3}
-  Body: Be totes hilarious
+  Title: Promotions
+  Sprite: {fileID: 6084249756908604392, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Body: Speculate about promotions.

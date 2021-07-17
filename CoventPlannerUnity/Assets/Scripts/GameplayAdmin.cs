@@ -18,6 +18,7 @@ public class GameplayAdmin : MonoBehaviour
     }
     public eGameState GameState { get; private set; }
 
+    private int RunScore = 0;
 
     private void Awake()
     {
@@ -58,8 +59,9 @@ public class GameplayAdmin : MonoBehaviour
         BattleManager.Instance.PrepareBattle(opponent);
     }
 
-    public void ReturnToParty()
+    public void ReturnToParty(int battleScore)
     {
+        RunScore += battleScore;
         SwapState(eGameState.Party, eGameState.Battle);
         StateChangeActivations?.Invoke();
     }

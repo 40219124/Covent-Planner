@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueCard : MonoBehaviour
 {
     public DialogueCardSO CardDetails;
     private SpriteRenderer SpriteRenderer;
+    private TextMeshProUGUI TextElement;
     private int LocationInHand;
     private bool IsUsable = true;
 
     private Vector3 VerticalChange = Vector3.up * 1.0f;
 
-    private void Awake()
+    private void Start()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
+        TextElement = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void AssignCard(DialogueCardSO card)
@@ -21,6 +24,8 @@ public class DialogueCard : MonoBehaviour
         CardDetails = card;
         SpriteRenderer.sprite = CardDetails.Sprite;
         SpriteRenderer.color = Color.white;
+
+        TextElement.text = CardDetails.Body;
     }
 
     public void SetHandLocation(int location)
