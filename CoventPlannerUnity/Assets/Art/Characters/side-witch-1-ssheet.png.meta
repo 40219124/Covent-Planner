@@ -1,13 +1,40 @@
 fileFormatVersion: 2
-guid: 70034d9c60cba1a49a3f5483d50c1d16
+guid: e0282a1cbb1ad294e872afb04763e585
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7064617418406735705
-    second: back2-ssheet_0
+      213: 5535614445237858254
+    second: side-witch-1-ssheet_0
   - first:
-      213: -5315531666705753102
-    second: back2-ssheet_1
+      213: 4162314874078433632
+    second: side-witch-1-ssheet_1
+  - first:
+      213: 4758127333571533100
+    second: side-witch-1-ssheet_2
+  - first:
+      213: -926872467294621376
+    second: side-witch-1-ssheet_3
+  - first:
+      213: -4781236344966326186
+    second: side-witch-1-ssheet_4
+  - first:
+      213: 6538017811580689419
+    second: side-witch-1-ssheet_5
+  - first:
+      213: -6593500323772420027
+    second: side-witch-1-ssheet_6
+  - first:
+      213: 5679346917584620804
+    second: side-witch-1-ssheet_7
+  - first:
+      213: -1078013079309613804
+    second: side-witch-1-ssheet_8
+  - first:
+      213: -258033466287249913
+    second: side-witch-1-ssheet_9
+  - first:
+      213: -991536849189697158
+    second: side-witch-1-ssheet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,28 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: back2-ssheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a054dd43ef65fd90800000000000000
-      internalID: -7064617418406735705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: back2-ssheet_1
+      name: side-witch-1-ssheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -144,8 +150,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fbd9adac107b36b0800000000000000
-      internalID: -5315531666705753102
+      spriteID: ecf6ced420472dc40800000000000000
+      internalID: 5535614445237858254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: side-witch-1-ssheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06115c8335383c930800000000000000
+      internalID: 4162314874078433632
       vertices: []
       indices: 
       edges: []

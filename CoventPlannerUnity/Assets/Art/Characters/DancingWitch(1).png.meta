@@ -1,13 +1,55 @@
 fileFormatVersion: 2
-guid: 70034d9c60cba1a49a3f5483d50c1d16
+guid: ff752eaa54928694c8ada809f5c8c113
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7064617418406735705
-    second: back2-ssheet_0
+      213: 1412605239765170662
+    second: DancingWitch(1)_0
   - first:
-      213: -5315531666705753102
-    second: back2-ssheet_1
+      213: -7184527527131352230
+    second: DancingWitch(1)_1
+  - first:
+      213: -1467299239066585992
+    second: DancingWitch(1)_2
+  - first:
+      213: -4682676288107453913
+    second: DancingWitch(1)_3
+  - first:
+      213: 3714385469971111977
+    second: DancingWitch(1)_4
+  - first:
+      213: -3786687275309277251
+    second: DancingWitch(1)_5
+  - first:
+      213: -8548011692751786068
+    second: DancingWitch(1)_6
+  - first:
+      213: 2528812171476409530
+    second: DancingWitch(1)_7
+  - first:
+      213: 904409865453998688
+    second: DancingWitch(1)_8
+  - first:
+      213: -1891854331468081335
+    second: DancingWitch(1)_9
+  - first:
+      213: 3804919983093431601
+    second: DancingWitch(1)_10
+  - first:
+      213: 3798374707476455810
+    second: DancingWitch(1)_11
+  - first:
+      213: 8947794816206226340
+    second: DancingWitch(1)_12
+  - first:
+      213: -3813845301509700397
+    second: DancingWitch(1)_13
+  - first:
+      213: -7627317565635597878
+    second: DancingWitch(1)_14
+  - first:
+      213: -45391831826635131
+    second: DancingWitch(1)_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,28 +151,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: back2-ssheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a054dd43ef65fd90800000000000000
-      internalID: -7064617418406735705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: back2-ssheet_1
+      name: DancingWitch(1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -144,8 +165,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fbd9adac107b36b0800000000000000
-      internalID: -5315531666705753102
+      spriteID: 6e9fe043bf49a9310800000000000000
+      internalID: 1412605239765170662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DancingWitch(1)_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a53f152874e6b4c90800000000000000
+      internalID: -7184527527131352230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DancingWitch(1)_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8743c3cbd1b13abe0800000000000000
+      internalID: -1467299239066585992
       vertices: []
       indices: 
       edges: []

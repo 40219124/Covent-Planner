@@ -1,13 +1,61 @@
 fileFormatVersion: 2
-guid: 70034d9c60cba1a49a3f5483d50c1d16
+guid: d7a8321555940c34ab3f77b0a38ec374
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7064617418406735705
-    second: back2-ssheet_0
+      213: 1551182913213946719
+    second: smart_witch_0
   - first:
-      213: -5315531666705753102
-    second: back2-ssheet_1
+      213: -4180638279951616209
+    second: smart_witch_1
+  - first:
+      213: -1681722619555797940
+    second: smart_witch_2
+  - first:
+      213: -1879533256051642662
+    second: smart_witch_3
+  - first:
+      213: -8693740943734136668
+    second: smart_witch_4
+  - first:
+      213: 828493730171189045
+    second: smart_witch_5
+  - first:
+      213: 4222031187073970332
+    second: smart_witch_6
+  - first:
+      213: 8195184117220532448
+    second: smart_witch_7
+  - first:
+      213: -3767295077947925714
+    second: smart_witch_8
+  - first:
+      213: 2345243861446548322
+    second: smart_witch_9
+  - first:
+      213: -2756456035849818257
+    second: smart_witch_10
+  - first:
+      213: 2838722719700724492
+    second: smart_witch_11
+  - first:
+      213: 1162053723856993228
+    second: smart_witch_12
+  - first:
+      213: 8914342157771199818
+    second: smart_witch_13
+  - first:
+      213: 4573552494671111878
+    second: smart_witch_14
+  - first:
+      213: -1213969048749527695
+    second: smart_witch_15
+  - first:
+      213: 3232717544300786197
+    second: smart_witch_16
+  - first:
+      213: -4382558349260848044
+    second: smart_witch_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,28 +157,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: back2-ssheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a054dd43ef65fd90800000000000000
-      internalID: -7064617418406735705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: back2-ssheet_1
+      name: smart_witch_0
       rect:
         serializedVersion: 2
         x: 0
@@ -144,8 +171,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fbd9adac107b36b0800000000000000
-      internalID: -5315531666705753102
+      spriteID: f5bd5cb14a8e68510800000000000000
+      internalID: 1551182913213946719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smart_witch_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27751562a36bf5c0800000000000000
+      internalID: -4180638279951616209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smart_witch_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4423aa003259a8e0800000000000000
+      internalID: -1681722619555797940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smart_witch_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade2289367e8ae5e0800000000000000
+      internalID: -1879533256051642662
       vertices: []
       indices: 
       edges: []
