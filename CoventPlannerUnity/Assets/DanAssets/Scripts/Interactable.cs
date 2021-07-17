@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-  /*  public Sprite IconSprite;
+    public Sprite IconSprite;
     private bool inRange = false;
     protected bool useable = true;
     protected GameObject visualiser;
@@ -53,5 +53,5 @@ public class Interactable : MonoBehaviour
         visualiser.SetActive(false);
         useable = false;
         gameObject.SetActive(false);
-    }*/
+    }
 }
