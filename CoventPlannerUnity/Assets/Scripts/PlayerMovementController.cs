@@ -17,16 +17,22 @@ public enum eFourDirs
 public class PlayerMovementController : MonoBehaviour
 {
     private eFourDirs InputDir = eFourDirs.None;
+    private eFourDirs PriorityInputDir = eFourDirs.None;
     private Vector2 TravelDir = Vector2.zero;
     private Vector2Int? TravelTarget = null;
+
+    private eFourDirs FacingDir = eFourDirs.Down;
 
     [SerializeField]
     private float Speed = 2.0f;
 
+    private Animator Animator;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        Animator = GetComponent<Animator>();
+        SetFacing(eFourDirs.Down);
     }
 
     // Update is called once per frame
@@ -75,28 +81,48 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    private void CalcDirInput()
+    private eFourDirs PrioFromMixedDirs(eFourDirs mixed)
     {
-        if (InputDir.HasFlag(eFourDirs.Right))
+        eFourDirs prio = eFourDirs.None;
+        if (mixed.HasFlag(eFourDirs.Right))
         {
-            TravelDir = Vector2.right;
+            prio = eFourDirs.Right;
         }
-        else if (InputDir.HasFlag(eFourDirs.Left))
+        else if (mixed.HasFlag(eFourDirs.Left))
         {
-            TravelDir = Vector2.left;
+            prio = eFourDirs.Left;
         }
-        else if (InputDir.HasFlag(eFourDirs.Up))
+        else if (mixed.HasFlag(eFourDirs.Up))
         {
-            TravelDir = Vector2.up;
+            prio = eFourDirs.Up;
         }
-        else if (InputDir.HasFlag(eFourDirs.Down))
+        else if (mixed.HasFlag(eFourDirs.Down))
         {
-            TravelDir = Vector2.down;
+            prio = eFourDirs.Down;
         }
-        else
+        return prio;
+    }
+
+    private Vector2 DirFromFour(eFourDirs fourD)
+    {
+        Vector2 outDir = Vector2.zero;
+        if (fourD.HasFlag(eFourDirs.Right))
         {
-            TravelDir = Vector2.zero;
+            outDir = Vector2.right;
         }
+        else if (fourD.HasFlag(eFourDirs.Left))
+        {
+            outDir = Vector2.left;
+        }
+        else if (fourD.HasFlag(eFourDirs.Up))
+        {
+            outDir = Vector2.up;
+        }
+        else if (fourD.HasFlag(eFourDirs.Down))
+        {
+            outDir = Vector2.down;
+        }
+        return outDir;
     }
 
     private void MoveToTarget()
@@ -118,12 +144,16 @@ public class PlayerMovementController : MonoBehaviour
 
     private void CalcMoveTarget()
     {
-        CalcDirInput();
+        PriorityInputDir = PrioFromMixedDirs(InputDir);
+        TravelDir = DirFromFour(PriorityInputDir);
         if (TravelDir == Vector2.zero)
         {
             TravelTarget = null;
             return;
         }
+
+        SetFacing(PriorityInputDir);
+
         Vector2 posPlusDir = (Vector2)transform.position + TravelDir;
         RaycastHit2D hit = Physics2D.Raycast(posPlusDir, Vector2.zero);
         if(hit.collider != null && hit.collider.CompareTag("NoMove"))
@@ -138,6 +168,12 @@ public class PlayerMovementController : MonoBehaviour
         }
         TravelTarget = new Vector2Int(Mathf.RoundToInt(posPlusDir.x), Mathf.RoundToInt(posPlusDir.y));
         // ~~~ Check a grid of empty/not-empty squares for validity
+    }
+
+    private void SetFacing(eFourDirs dir)
+    {
+        FacingDir = dir;
+        Animator.SetInteger("Facing", (int)FacingDir);
     }
 
     private float TranslateCharacter(float dt)
