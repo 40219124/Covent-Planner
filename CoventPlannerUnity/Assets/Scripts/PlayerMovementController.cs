@@ -40,6 +40,8 @@ public class PlayerMovementController : MonoBehaviour
     {
         TakeDirInput();
         MoveToTarget();
+
+        PerformActionUpdate();
     }
 
     private void TakeDirInput()
@@ -194,5 +196,23 @@ public class PlayerMovementController : MonoBehaviour
             transform.position += (Vector3)travel;
         }
         return remainder;
+    }
+
+    private void PerformActionUpdate()
+    {
+        if (!Input.GetButtonDown("Confirm") || TravelTarget != null)
+        {
+            return;
+        }
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll((Vector2)transform.position + DirFromFour(FacingDir), Vector2.zero);
+        foreach(RaycastHit2D hit in hits)
+        {
+            if (hit.collider.CompareTag("NPC"))
+            {
+                GameplayAdmin.Instance.StartBattleWith(hit.collider.GetComponent<NPCController>().GetDetails());
+                break;
+            }
+        }
     }
 }

@@ -32,6 +32,16 @@ public class BattleManager : MonoBehaviour
     public bool WaitingForCard { get; private set; }
     DialogueCard PlayedCard = null;
 
+    private void OnEnable()
+    {
+        GameplayAdmin.StateChangeActivations += UpdateState;
+    }
+
+    private void OnDisable()
+    {
+        GameplayAdmin.StateChangeActivations -= UpdateState;
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -47,10 +57,14 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
+        UpdateState();
         CleanTools();
     }
 
+    private void UpdateState()
+    {
+        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
+    }
     public void SetActive(bool state)
     {
         SceneContainer.gameObject.SetActive(state);
@@ -92,8 +106,8 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle()
     {
+        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
         StartCoroutine(RunBattle());
-
     }
 
     private IEnumerator RunBattle()

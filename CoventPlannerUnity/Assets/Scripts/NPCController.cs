@@ -59,6 +59,11 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    public BattleOpponentSO GetDetails()
+    {
+        return BattleDetails;
+    }
+
     // Update is called once per frame
     void Update()
     {

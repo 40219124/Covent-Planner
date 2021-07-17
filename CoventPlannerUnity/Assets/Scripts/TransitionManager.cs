@@ -65,6 +65,11 @@ public class TransitionManager : MonoBehaviour
         StartCoroutine(OpeningCoroutine(BattleOpeningTransitions));
     }
 
+    public void TransitionFinished()
+    {
+        GameplayAdmin.Instance.TransitionFinished();
+    }
+
     public void CleanUpTransition()
     {
         Destroy(ActiveTransition.gameObject);

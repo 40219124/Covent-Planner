@@ -43,20 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: PartyBackground
     uniqueID: 788240845
     locked: 0
-  - name: Character
+  - name: PartyCharacter
     uniqueID: 1259304487
     locked: 0
-  - name: Foreground
+  - name: PartyForeground
     uniqueID: 230953487
-    locked: 0
-  - name: Banner
-    uniqueID: 2586231761
-    locked: 0
-  - name: Wave
-    uniqueID: 3105536185
     locked: 0
   - name: BattleBackground
     uniqueID: 2059202315
@@ -72,6 +66,12 @@ TagManager:
     locked: 0
   - name: BattleFrame
     uniqueID: 2326748391
+    locked: 0
+  - name: TransBanner
+    uniqueID: 2586231761
+    locked: 0
+  - name: TransWave
+    uniqueID: 3105536185
     locked: 0
   - name: RenderTexture
     uniqueID: 370637431

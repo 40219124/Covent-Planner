@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameplayAdmin : MonoBehaviour
 {
+    public static event System.Action StateChangeActivations;
+
     public static GameplayAdmin Instance { get; private set; }
 
     [System.Flags]
@@ -45,5 +47,30 @@ public class GameplayAdmin : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void StartBattleWith(BattleOpponentSO opponent)
+    {
+        SwapState(eGameState.Battle, eGameState.Party);
+        // ~~~ everything else
+        TransitionManager.Instance.PlayBattleOpeningTransition();
+        Debug.Log("Ping!");
+        BattleManager.Instance.PrepareBattle(opponent);
+    }
+
+    private void SwapState(eGameState newState, eGameState oldState)
+    {
+        GameState &= ~oldState;
+        GameState |= newState;
+    }
+
+    public void TransitionFinished()
+    {
+        StateChangeActivations?.Invoke();
+        TransitionManager.Instance.CleanUpTransition();
+        if (ActiveInAdmin(eGameState.Battle))
+        {
+            BattleManager.Instance.StartBattle();
+        }
     }
 }
