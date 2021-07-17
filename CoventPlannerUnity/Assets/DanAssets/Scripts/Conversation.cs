@@ -13,7 +13,7 @@ public enum Topic
 
 public class Conversation : Interactable
 {
-    public Sprite SucceededSprite;
+  /*  public Sprite SucceededSprite;
     public Sprite FailedSprite;
     public Topic Topic1;
     public Topic Topic2;
@@ -78,5 +78,5 @@ public class Conversation : Interactable
         }
         base.useable = false;
         CharacterInfo.TimeAdvanceEvent.Invoke();
-    }
+    }*/
 }
