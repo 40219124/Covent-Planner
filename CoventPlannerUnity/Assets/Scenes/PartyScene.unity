@@ -9831,7 +9831,7 @@ GameObject:
   - component: {fileID: 1608088013}
   - component: {fileID: 1608088012}
   - component: {fileID: 1608088011}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Impassable
   m_TagString: NoMove
   m_Icon: {fileID: 0}
@@ -12230,7 +12230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1663415182652253653, guid: 5710f9d837ca6394984a4f9cc7d9c34a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0625
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1663415182652253653, guid: 5710f9d837ca6394984a4f9cc7d9c34a, type: 3}
       propertyPath: m_LocalPosition.z

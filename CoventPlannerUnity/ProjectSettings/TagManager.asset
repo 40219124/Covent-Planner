@@ -14,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Render Texture
-  - 
-  - 
+  - Person
+  - Impassable
   - 
   - 
   - 
@@ -63,6 +63,9 @@ TagManager:
     locked: 0
   - name: BattleCard
     uniqueID: 2289801735
+    locked: 0
+  - name: BattleCardForeground
+    uniqueID: 4137187359
     locked: 0
   - name: BattleFrame
     uniqueID: 2326748391

@@ -6,29 +6,41 @@ using TMPro;
 public class DialogueCard : MonoBehaviour
 {
     public CardInstance CardDetails { get; private set; }
-    private SpriteRenderer SpriteRenderer;
+    public eDialogueResponse Matchup { get; private set; }
+
+    private SpriteRenderer CardSprite;
+    [SerializeField]
+    private SpriteRenderer BorderSprite;
+    [SerializeField]
     private TextMeshProUGUI TextElement;
     private int LocationInHand;
 
+    private static BattleHand Hand;
+
     private Vector3 VerticalChange = Vector3.up * 1.0f;
+
+    private bool Hovered = false;
 
     private void Start()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
-        TextElement = GetComponentInChildren<TextMeshProUGUI>();
+        if (Hand == null)
+        {
+            Hand = GetComponentInParent<BattleHand>();
+        }
+        CardSprite = GetComponent<SpriteRenderer>();
     }
 
     public void AssignCard(CardInstance card)
     {
         CardDetails = card;
-        SpriteRenderer.sprite = CardDetails.Object.Sprite;
-        SpriteRenderer.color = Color.white;
+        CardSprite.sprite = CardDetails.Object.Sprite;
+        CardSprite.color = Color.white;
 
-       // TextElement.text = CardDetails.Object.Body;
-
-        SetUsable(card.Playable);
+        // TextElement.text = CardDetails.Object.Body;
 
         ShowMatchup();
+        SetUsable(card.Playable);
+
     }
 
     public void SetHandLocation(int location)
@@ -39,7 +51,7 @@ public class DialogueCard : MonoBehaviour
 
     private void SetZLocation(int location)
     {
-        SpriteRenderer.sortingOrder = location;
+        CardSprite.sortingOrder = location;
         Vector3 pos = transform.position;
         pos.z = -0.01f * location;
         transform.position = pos;
@@ -47,6 +59,8 @@ public class DialogueCard : MonoBehaviour
 
     private void HoverCard()
     {
+        Hovered = true;
+        Hand.NewHoveredCard(this);
         // ~~~ instant size/position change
         transform.Translate(VerticalChange);
         // bump to front of sorting ~~~ could do with better way to get number than set to 20
@@ -55,6 +69,8 @@ public class DialogueCard : MonoBehaviour
 
     private void UnHoverCard()
     {
+        Hovered = false;
+        Hand.CardUnhovered(this);
         // ~~~ shrink back down
         transform.Translate(-VerticalChange);
         SetZLocation(LocationInHand);
@@ -62,11 +78,47 @@ public class DialogueCard : MonoBehaviour
 
     private void ShowMatchup()
     {
-        eDialogueResponse score = CardLibrary.Instance.MatchupQuality(BattleManager.Instance.Opponent, CardDetails.Object);
-        if (score != eDialogueResponse.none)
+        Matchup = CardLibrary.Instance.MatchupQuality(BattleManager.Instance.Opponent, CardDetails.Object);
+        BorderSprite.color = ColourFromMatchup(Matchup);
+        if (Matchup != eDialogueResponse.none)
         {
             // ~~~ display helpful information
+            // CardSprite.color = ColourFromMatchup(score);
 
+        }
+    }
+
+    private Color ColourFromMatchup(eDialogueResponse matchup)
+    {
+        switch (matchup)
+        {
+            case eDialogueResponse.none:
+                return Color.grey;
+            case eDialogueResponse.red:
+                return Color.red;
+            case eDialogueResponse.orange:
+                return Color.yellow;
+            case eDialogueResponse.green:
+                return Color.green;
+            default:
+                return Color.grey;
+        }
+    }
+
+    private string TextFromMatchup(eDialogueResponse matchup)
+    {
+        switch (matchup)
+        {
+            case eDialogueResponse.none:
+                return "Unknown";
+            case eDialogueResponse.red:
+                return "Poor";
+            case eDialogueResponse.orange:
+                return "Fine";
+            case eDialogueResponse.green:
+                return "Good";
+            default:
+                return "Unknown";
         }
     }
 
@@ -75,11 +127,11 @@ public class DialogueCard : MonoBehaviour
         CardDetails.Playable = state;
         if (state == false)
         {
-            SpriteRenderer.color = Color.grey;
+            CardSprite.color = Color.grey;
         }
         else
         {
-            SpriteRenderer.color = Color.white;
+            //CardSprite.color = Color.white;
         }
     }
 

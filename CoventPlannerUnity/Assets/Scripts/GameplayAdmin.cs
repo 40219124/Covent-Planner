@@ -13,8 +13,10 @@ public class GameplayAdmin : MonoBehaviour
     {
         Running = 1 << 0,
         Paused = 1 << 1,
+        ExeGroup = Running | Paused,
         Party = 1 << 2,
-        Battle = 1 << 3
+        Battle = 1 << 3,
+        SceneGroup = Party | Battle
     }
     public eGameState GameState { get; private set; }
 
@@ -83,5 +85,10 @@ public class GameplayAdmin : MonoBehaviour
         {
             BattleManager.Instance.StartBattle();
         }
+    }
+
+    public void EndRun()
+    {
+        CardLibrary.Instance.CommitNewKnowledge();
     }
 }

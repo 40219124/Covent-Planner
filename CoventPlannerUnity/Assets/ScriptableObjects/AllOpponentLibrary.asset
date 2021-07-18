@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllOpponents:
   - {fileID: 11400000, guid: f224f3e65e3a3294885f231ec939306e, type: 2}
+  - {fileID: 11400000, guid: c1d8b3687b57e1a4a87ecf8c1cfa8d8f, type: 2}
+  - {fileID: 11400000, guid: d77f8651e2b736b4394e3940e1dc849f, type: 2}
