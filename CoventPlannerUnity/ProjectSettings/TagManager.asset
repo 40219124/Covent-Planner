@@ -76,6 +76,12 @@ TagManager:
   - name: TransWave
     uniqueID: 3105536185
     locked: 0
+  - name: MovieBG
+    uniqueID: 2697487655
+    locked: 0
+  - name: MovieText
+    uniqueID: 2750443521
+    locked: 0
   - name: RenderTexture
     uniqueID: 370637431
     locked: 0

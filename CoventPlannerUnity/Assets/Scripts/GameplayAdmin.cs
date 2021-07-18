@@ -41,6 +41,7 @@ public class GameplayAdmin : MonoBehaviour
     void Start()
     {
         GameState = eGameState.Running | eGameState.Party;
+        DialogueScreen.Instance.PlayOpening();
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.PartyScene);
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.BattleScene);
     }
@@ -57,7 +58,7 @@ public class GameplayAdmin : MonoBehaviour
 
     public void StartBattleWith(BattleOpponentSO opponent)
     {
-        SwapState(eGameState.Battle, eGameState.Party);
+        SetGameScene(eGameState.Battle);
         // ~~~ everything else
         TransitionManager.Instance.PlayBattleOpeningTransition();
         Debug.Log("Ping!");
@@ -67,14 +68,20 @@ public class GameplayAdmin : MonoBehaviour
     public void ReturnToParty(int battleScore)
     {
         RunScore += battleScore;
-        SwapState(eGameState.Party, eGameState.Battle);
+        SetGameScene(eGameState.Party);
         StateChangeActivations?.Invoke();
     }
 
-    private void SwapState(eGameState newState, eGameState oldState)
+    public void SetGameRunning(eGameState state)
     {
-        GameState &= ~oldState;
-        GameState |= newState;
+        GameState &= ~eGameState.ExeGroup;
+        GameState |= state;
+    }
+
+    private void SetGameScene(eGameState scene)
+    {
+        GameState &= ~eGameState.SceneGroup;
+        GameState |= scene;
     }
 
     public void TransitionFinished()

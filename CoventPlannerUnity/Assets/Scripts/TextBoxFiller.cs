@@ -7,6 +7,7 @@ public class TextBoxFiller : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI Text;
+    private Color DefaultColour;
     [SerializeField]
     private Animator IconAnimator;
 
@@ -19,12 +20,28 @@ public class TextBoxFiller : MonoBehaviour
 
     private void Awake()
     {
+        DefaultColour = Text.color;
         ResetSpeed();
+    }
+
+    public void ResetColour()
+    {
+        Text.color = DefaultColour;
+    }
+
+    public void SetTextColour(Color colour)
+    {
+        Text.color = colour;
     }
 
     public void ResetSpeed()
     {
         TimePerChar = DefaultTimePerChar;
+    }
+
+    public void SetTimePerChar(float time)
+    {
+        TimePerChar = time;
     }
 
     public IEnumerator TextScroll(string text)
