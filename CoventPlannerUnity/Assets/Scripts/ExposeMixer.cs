@@ -9,7 +9,7 @@ public class ExposeMixer : MonoBehaviour
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private string ChannelString;
 
-    private string[] validChannels = new string[4] { "MasterVolume", "Ambient", "SFXVolume", "MusicVolume" };
+    private string[] validChannels = new string[4] { "MasterVolume", "AmbientVolume", "SFXVolume", "MusicVolume" };
 
     private void Awake()
     {

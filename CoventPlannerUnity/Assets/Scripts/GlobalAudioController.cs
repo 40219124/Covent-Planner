@@ -11,11 +11,16 @@ public class GlobalAudioController : MonoBehaviour
     public AudioSource[] SFXChannels;
     public AudioSource[] MusicChannels;
 
+    public AudioClip[] BattleResponseClips;
+    public AudioClip[] AmbientClips;
+    public AudioClip[] MusicClips;
+
 
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
+        PlayAmbient(AmbientClips[0]);
     }
 
     private void OnEnable()
@@ -23,10 +28,29 @@ public class GlobalAudioController : MonoBehaviour
         BattleManager.CardPlayedEvent += PlayBattleOutcome;
     }
 
+    private void OnDisable()
+    {
+        BattleManager.CardPlayedEvent -= PlayBattleOutcome;
+    }
+
     //battlemanager.instance.opponent
     public void PlayBattleOutcome(int successCode)
     {
-
+        switch (successCode)
+        {
+            case 1:
+                PlaySFX(BattleResponseClips[0]);
+                break;
+            case 2:
+                PlaySFX(BattleResponseClips[1]);
+                break;
+            case 3:
+                PlaySFX(BattleResponseClips[2]);
+                break;
+            default:
+                Debug.LogError("Bad success code from battle.");
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +67,7 @@ public class GlobalAudioController : MonoBehaviour
             {
                 channel.clip = clip;
                 channel.Play();
+                break;
             }
         }
     }
@@ -56,6 +81,7 @@ public class GlobalAudioController : MonoBehaviour
             {
                 channel.clip = clip;
                 channel.Play();
+                break;
             }
         }
     }
@@ -69,6 +95,7 @@ public class GlobalAudioController : MonoBehaviour
             {
                 channel.clip = clip;
                 channel.Play();
+                break;
             }
         }
     }
