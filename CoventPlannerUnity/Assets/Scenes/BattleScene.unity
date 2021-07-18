@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1 &314315435
@@ -312,7 +316,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1968218905
-  m_SortingLayer: 10
+  m_SortingLayer: 8
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: 82bcc7065ed1efc4499bc7e7cc52ac38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -427,6 +431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1001 &421916670
@@ -483,6 +491,10 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
@@ -666,7 +678,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2059202315
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4b1df15b949a67e4fa452347119cbf5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -734,6 +746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1001 &1142471889
@@ -790,6 +806,10 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
@@ -852,6 +872,10 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
@@ -947,6 +971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1001 &1488331333
@@ -1004,6 +1032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCard (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1 &1507503821
@@ -1036,6 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneContainer: {fileID: 1998207752}
+  Hand: {fileID: 1567141296}
   BattleCharacterMark: {fileID: 4336161728723593039}
   BattleCharacterWings: {fileID: 2018030021}
   BattleCharacter: {fileID: 859090129}
@@ -1043,7 +1076,6 @@ MonoBehaviour:
   PowerC: 3
   DialogueText: {fileID: 1743121192}
   TimePerChar: 0.05
-  DebugOpponent: {fileID: 11400000, guid: f224f3e65e3a3294885f231ec939306e, type: 2}
 --- !u!4 &1507503823
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,6 +1104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1567141295}
+  - component: {fileID: 1567141296}
   m_Layer: 2
   m_Name: PlayerHand
   m_TagString: Untagged
@@ -1087,7 +1120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567141294}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7938267394657372651}
@@ -1103,6 +1136,19 @@ Transform:
   m_Father: {fileID: 1998207752}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567141296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567141294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6303d833b65894e459d6d777d88bdd5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPrefab: {fileID: 2700128552384390449, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
 --- !u!1 &1592717598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1235,10 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
@@ -1351,7 +1401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1998207752
 Transform:
   m_ObjectHideFlags: 0
@@ -1512,7 +1562,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 701133141
-  m_SortingLayer: 7
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 60c48515c0ae9204580318fbb1188a4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1712,6 +1762,10 @@ PrefabInstance:
     - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
       propertyPath: m_Name
       value: DialogueCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297119143977305922, guid: d774f314840e39943a5f98ac192d9d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d774f314840e39943a5f98ac192d9d39, type: 3}

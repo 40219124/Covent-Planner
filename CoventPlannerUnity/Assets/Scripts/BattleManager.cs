@@ -11,6 +11,8 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField]
     private Transform SceneContainer;
+    [SerializeField]
+    private BattleHand Hand;
 
     public Transform BattleCharacterMark;
     public Transform BattleCharacterWings;
@@ -24,8 +26,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private float TimePerChar = 0.05f;
 
-    public BattleOpponentSO DebugOpponent;
-    private BattleOpponentSO Opponent;
+    public BattleOpponentSO Opponent { get; private set; }
 
     private GameplayAdmin.eGameState ThisState = GameplayAdmin.eGameState.Battle;
 
@@ -70,18 +71,7 @@ public class BattleManager : MonoBehaviour
         SceneContainer.gameObject.SetActive(state);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Time.time % 5 <= 1)
-        {
-            if (Opponent == null)
-            {
-                PrepareBattle(DebugOpponent);
-                StartBattle();
-            }
-        }
-    }
+
 
     private void CleanTools()
     {
@@ -93,6 +83,8 @@ public class BattleManager : MonoBehaviour
 
         WaitingForCard = false;
         PlayedCard = null;
+
+        Hand.EmptyHand();
     }
 
     public void PrepareBattle(BattleOpponentSO opponent)
@@ -102,6 +94,8 @@ public class BattleManager : MonoBehaviour
         BattleCharacter.sprite = opponent.Sprite;
 
         DialogueText.text = "";
+
+        Hand.FillHand();
     }
 
     public void StartBattle()
@@ -129,7 +123,7 @@ public class BattleManager : MonoBehaviour
             }
             WaitingForCard = false;
             // ~~~ play card
-            DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails);
+            DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails.Object);
             battleScore += (int)response.ResponseTier;
             yield return TextScroll(DialogueText, response.ResponseText);
             yield return StartCoroutine(WaitForUser());
@@ -197,6 +191,7 @@ public class BattleManager : MonoBehaviour
         if (WaitingForCard)
         {
             PlayedCard = card;
+            CardLibrary.Instance.CombinationPlayed(Opponent, card.CardDetails.Object);
         }
         return WaitingForCard;
     }

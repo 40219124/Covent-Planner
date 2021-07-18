@@ -30,7 +30,10 @@ public class GameplayAdmin : MonoBehaviour
         {
             Debug.LogError($"Duplicate {GetType()}");
             Destroy(gameObject);
+            return;
         }
+
+        CardDeck.PopulateDeck();
     }
     // Start is called before the first frame update
     void Start()
