@@ -7,10 +7,14 @@ public enum eDialogueResponse { none = -1, red = 0, orange = 1, green = 2 }
 
 public class BattleManager : MonoBehaviour
 {
+    public static event System.Action<int> CardPlayedEvent;
+
     public static BattleManager Instance { get; private set; }
 
     [SerializeField]
     private Transform SceneContainer;
+    [SerializeField]
+    private BattleHand Hand;
 
     public Transform BattleCharacterMark;
     public Transform BattleCharacterWings;
@@ -20,54 +24,48 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private float PowerC = 2.0f;
 
-    public TextMeshProUGUI DialogueText;
+    public TextBoxFiller DialogueText;
     [SerializeField]
     private float TimePerChar = 0.05f;
 
-    public BattleOpponentSO DebugOpponent;
-    private BattleOpponentSO Opponent;
+    public BattleOpponentSO Opponent { get; private set; }
 
     private GameplayAdmin.eGameState ThisState = GameplayAdmin.eGameState.Battle;
 
     public bool WaitingForCard { get; private set; }
     DialogueCard PlayedCard = null;
 
+    private void OnEnable()
+    {
+        GameplayAdmin.StateChangeActivations += UpdateState;
+    }
+
+    private void OnDisable()
+    {
+        GameplayAdmin.StateChangeActivations -= UpdateState;
+    }
+
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError($"Duplicate {GetType()}");
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
     // Start is called before the first frame update
     void Start()
     {
-        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
+        UpdateState();
         CleanTools();
     }
 
+    private void UpdateState()
+    {
+        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
+    }
     public void SetActive(bool state)
     {
         SceneContainer.gameObject.SetActive(state);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Time.time % 5 <= 1)
-        {
-            if (Opponent == null)
-            {
-                PrepareBattle(DebugOpponent);
-                StartBattle();
-            }
-        }
-    }
+
 
     private void CleanTools()
     {
@@ -75,10 +73,12 @@ public class BattleManager : MonoBehaviour
         BattleCharacter.sprite = null;
         BattleCharacter.transform.position = BattleCharacterWings.position;
 
-        DialogueText.text = "";
+        DialogueText.ClearText();
 
         WaitingForCard = false;
         PlayedCard = null;
+
+        Hand.EmptyHand();
     }
 
     public void PrepareBattle(BattleOpponentSO opponent)
@@ -87,13 +87,15 @@ public class BattleManager : MonoBehaviour
         BattleCharacter.transform.position = BattleCharacterWings.position;
         BattleCharacter.sprite = opponent.Sprite;
 
-        DialogueText.text = "";
+        DialogueText.ClearText();
+
+        Hand.FillHand();
     }
 
     public void StartBattle()
     {
+        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
         StartCoroutine(RunBattle());
-
     }
 
     private IEnumerator RunBattle()
@@ -101,77 +103,71 @@ public class BattleManager : MonoBehaviour
         int battleScore = 0;
         yield return StartCoroutine(SlideCharacter(SlideInProgress));
         // ~~~ present text, etc
-        yield return TextScroll(DialogueText, Opponent.OpeningText);
+        yield return DialogueText.TextScroll(Opponent.OpeningText);
         yield return StartCoroutine(WaitForUser());
 
         for (int i = 0; i < 3; ++i)
         {
 
-            yield return TextScroll(DialogueText, Opponent.VibeText);
-            WaitingForCard = true;
-            while (PlayedCard == null)
-            {
-                yield return null;
-            }
-            WaitingForCard = false;
+            yield return DialogueText.TextScroll(Opponent.VibeText);
+            yield return StartCoroutine(WaitForCard());
             // ~~~ play card
-            DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails);
+            DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails.Object);
             battleScore += (int)response.ResponseTier;
-            yield return TextScroll(DialogueText, response.ResponseText);
+            CardPlayedEvent?.Invoke((int)response.ResponseTier);
+            yield return DialogueText.TextScroll(response.ResponseText);
             yield return StartCoroutine(WaitForUser());
 
             PlayedCard = null;
         }
 
-        yield return TextScroll(DialogueText, Opponent.ClosingText);
+        yield return DialogueText.TextScroll(Opponent.ClosingText);
         yield return StartCoroutine(WaitForUser());
 
         yield return StartCoroutine(SlideCharacter(SlideOutProgress));
 
+        GameplayAdmin.NPCToScore npcScore = new GameplayAdmin.NPCToScore();
+        npcScore.NPC = Opponent.Name;
+        npcScore.Score = battleScore;
+
         Debug.Log($"Battle score {battleScore}");
+
+
 
         CleanTools();
 
         // ~~~ Transition out
+        GameplayAdmin.Instance.ReturnToParty(npcScore);
+
     }
 
-    private IEnumerator TextScroll(TextMeshProUGUI textbox, string text)
+    private void ActivateButtonPromptIcon()
     {
-        float timeElapsed = 0.0f;
-
-        int lastProgress = -1;
-        while (lastProgress < text.Length)
-        {
-            yield return null;
-            if (Input.anyKey && timeElapsed > 0.3f)
-            {
-                break;
-            }
-            timeElapsed += Time.deltaTime;
-            int progress = (int)(timeElapsed / TimePerChar);
-            if (progress == lastProgress)
-            {
-                continue;
-            }
-            textbox.text = text.Substring(0, progress) + "<color=#00000000>" + text.Substring(progress);
-            lastProgress = progress;
-        }
-
-        textbox.text = text;
-        yield return null;
+        DialogueText.ActivateButtonPromptIcon();
+    }
+    private void ActivateCardPromptIcon()
+    {
+        DialogueText.ActivateCardPromptIcon();
+    }
+    private void HidePromptIcon()
+    {
+        DialogueText.HidePromptIcon();
     }
 
     private IEnumerator WaitForUser()
     {
-        bool wait = true;
-        while (wait)
+        yield return StartCoroutine(DialogueText.WaitForUser());
+    }
+    private IEnumerator WaitForCard()
+    {
+        ActivateCardPromptIcon();
+        WaitingForCard = true;
+        while (PlayedCard == null)
         {
-            if (Input.anyKeyDown)
-            {
-                wait = false;
-            }
             yield return null;
         }
+        WaitingForCard = false;
+        HidePromptIcon();
     }
 
     /// <summary>
@@ -182,6 +178,7 @@ public class BattleManager : MonoBehaviour
         if (WaitingForCard)
         {
             PlayedCard = card;
+            CardLibrary.Instance.CombinationPlayed(Opponent, card.CardDetails.Object);
         }
         return WaitingForCard;
     }

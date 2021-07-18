@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c3e7c32a347144a9d5b0dad24004ab, type: 3}
+  m_Name: PreEntranceMovie
+  m_EditorClassIdentifier: 
+  Lines:
+  - {fileID: 11400000, guid: 111b2ba4823e29d45a298ac8276a63f4, type: 2}
+  - {fileID: 11400000, guid: cf7caefa30b0d684c95359e783c6bc7b, type: 2}
+  - {fileID: 11400000, guid: 0dc8b83ae41f3d24ebb2b0c65323eda1, type: 2}
+  - {fileID: 11400000, guid: d434f0cf3992a1242aa9397e23aac33a, type: 2}

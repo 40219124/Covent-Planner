@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c3e7c32a347144a9d5b0dad24004ab, type: 3}
+  m_Name: OpeningMovie
+  m_EditorClassIdentifier: 
+  Lines:
+  - {fileID: 11400000, guid: dbf00e1b5894b584ab5e830b2a4038da, type: 2}
+  - {fileID: 11400000, guid: 88f7989748a9fc244b13b978ca03a4d3, type: 2}
+  - {fileID: 11400000, guid: e4e45d3524e6bd4429f5626fe1a55188, type: 2}
+  - {fileID: 11400000, guid: cca50e3150b3e8946b9a81c0f82e9ab7, type: 2}
+  - {fileID: 11400000, guid: 4e16dca090bb49d4593f0b61f8c86921, type: 2}
+  - {fileID: 11400000, guid: 696f88b0ecd621d4d8d2bb04c643e240, type: 2}
+  - {fileID: 11400000, guid: a558fd991864d83489628c383de01ddb, type: 2}
+  - {fileID: 11400000, guid: a1f02611a52b9344f90f65e69586fbcb, type: 2}

@@ -21,4 +21,9 @@ public class TransitionController : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("DoTransition");
     }
+
+    public void ClearAnim()
+    {
+        GetComponent<Animator>().SetTrigger("HideAnim");
+    }
 }

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33f2f734a8a97443b2ec9507b7524a5, type: 3}
+  m_Name: NPCAnimatorLibrary
+  m_EditorClassIdentifier: 
+  Controllers:
+  - NPC: 0
+    Controller: {fileID: 22100000, guid: 3b03e314455bd1d4ba6791139e210c83, type: 2}
+  - NPC: 1
+    Controller: {fileID: 22100000, guid: e7db59a348d79734e89d166f245b4ee9, type: 2}
+  - NPC: 2
+    Controller: {fileID: 22100000, guid: 61d7cf315f0538b4bbd59edd2d4df042, type: 2}
+  - NPC: 3
+    Controller: {fileID: 22100000, guid: 27b37b9aab0a4e04bb69fc875001e617, type: 2}
+  - NPC: 4
+    Controller: {fileID: 22100000, guid: a97cc5bcc2ca0404c8691e3d67079cf9, type: 2}
+  - NPC: 5
+    Controller: {fileID: 22100000, guid: cca001c8dc4b46545ad0ef1b7022ab74, type: 2}
+  - NPC: 6
+    Controller: {fileID: 22100000, guid: 976e5f08d2a8ef342837cc6e6ab33e61, type: 2}
+  - NPC: 7
+    Controller: {fileID: 22100000, guid: c59f241afac440b469348110cc8160b3, type: 2}
+  - NPC: 8
+    Controller: {fileID: 22100000, guid: 798a65ec9b8142246b69c5545e07723f, type: 2}
+  - NPC: 9
+    Controller: {fileID: 22100000, guid: 734b01cfcca34a044bcf642ca1c1fb10, type: 2}
+  - NPC: 10
+    Controller: {fileID: 22100000, guid: 573f4d5ca65d8cb4b9459379e691c8e9, type: 2}

@@ -1,26 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueCard : MonoBehaviour
 {
-    public DialogueCardSO CardDetails;
-    private SpriteRenderer SpriteRenderer;
+    public CardInstance CardDetails { get; private set; }
+    public eDialogueResponse Matchup { get; private set; }
+
+    private SpriteRenderer CardSprite;
+    [SerializeField]
+    private SpriteRenderer BorderSprite;
+    [SerializeField]
+    private TextMeshProUGUI TextElement;
     private int LocationInHand;
-    private bool IsUsable = true;
+
+    private static BattleHand Hand;
 
     private Vector3 VerticalChange = Vector3.up * 1.0f;
 
-    private void Awake()
+    private bool Hovered = false;
+
+    private void Start()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        if (Hand == null)
+        {
+            Hand = GetComponentInParent<BattleHand>();
+        }
+        CardSprite = GetComponent<SpriteRenderer>();
     }
 
-    public void AssignCard(DialogueCardSO card)
+    public void AssignCard(CardInstance card)
     {
         CardDetails = card;
-        SpriteRenderer.sprite = CardDetails.Sprite;
-        SpriteRenderer.color = Color.white;
+        CardSprite.sprite = CardDetails.Object.Sprite;
+        CardSprite.color = Color.white;
+
+        // TextElement.text = CardDetails.Object.Body;
+
+        ShowMatchup();
+        SetUsable(card.Playable);
+
     }
 
     public void SetHandLocation(int location)
@@ -31,49 +51,93 @@ public class DialogueCard : MonoBehaviour
 
     private void SetZLocation(int location)
     {
-        SpriteRenderer.sortingOrder = location;
+        CardSprite.sortingOrder = location;
         Vector3 pos = transform.position;
         pos.z = -0.01f * location;
         transform.position = pos;
     }
 
-    public void HoverCard()
+    private void HoverCard()
     {
+        Hovered = true;
+        Hand.NewHoveredCard(this);
         // ~~~ instant size/position change
         transform.Translate(VerticalChange);
         // bump to front of sorting ~~~ could do with better way to get number than set to 20
         SetZLocation(20);
     }
 
-    public void UnHoverCard()
+    private void UnHoverCard()
     {
+        Hovered = false;
+        Hand.CardUnhovered(this);
         // ~~~ shrink back down
         transform.Translate(-VerticalChange);
         SetZLocation(LocationInHand);
     }
 
-    public void ShowMatchup(BattleOpponentSO opponent)
+    private void ShowMatchup()
     {
-        eDialogueResponse score = opponent.GetCardTier(CardDetails);
-        // ~~~ display helpful information
+        Matchup = CardLibrary.Instance.MatchupQuality(BattleManager.Instance.Opponent, CardDetails.Object);
+        BorderSprite.color = ColourFromMatchup(Matchup);
+        if (Matchup != eDialogueResponse.none)
+        {
+            // ~~~ display helpful information
+            // CardSprite.color = ColourFromMatchup(score);
+
+        }
+    }
+
+    private Color ColourFromMatchup(eDialogueResponse matchup)
+    {
+        switch (matchup)
+        {
+            case eDialogueResponse.none:
+                return Color.grey;
+            case eDialogueResponse.red:
+                return Color.red;
+            case eDialogueResponse.orange:
+                return Color.yellow;
+            case eDialogueResponse.green:
+                return Color.green;
+            default:
+                return Color.grey;
+        }
+    }
+
+    private string TextFromMatchup(eDialogueResponse matchup)
+    {
+        switch (matchup)
+        {
+            case eDialogueResponse.none:
+                return "Unknown";
+            case eDialogueResponse.red:
+                return "Poor";
+            case eDialogueResponse.orange:
+                return "Fine";
+            case eDialogueResponse.green:
+                return "Good";
+            default:
+                return "Unknown";
+        }
     }
 
     public void SetUsable(bool state)
     {
-        IsUsable = state;
+        CardDetails.Playable = state;
         if (state == false)
         {
-            SpriteRenderer.color = Color.grey;
+            CardSprite.color = Color.grey;
         }
         else
         {
-            SpriteRenderer.color = Color.white;
+            //CardSprite.color = Color.white;
         }
     }
 
     private void OnMouseUpAsButton()
     {
-        if (IsUsable)
+        if (CardDetails.Playable)
         {
             if (BattleManager.Instance.PlayCard(this))
             {

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NoMove
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Render Texture
-  - 
-  - 
+  - Person
+  - Impassable
   - 
   - 
   - 
@@ -41,20 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: PartyBackground
     uniqueID: 788240845
     locked: 0
-  - name: Character
+  - name: PartyCharacter
     uniqueID: 1259304487
     locked: 0
-  - name: Foreground
+  - name: PartyForeground
     uniqueID: 230953487
-    locked: 0
-  - name: Banner
-    uniqueID: 2586231761
-    locked: 0
-  - name: Wave
-    uniqueID: 3105536185
     locked: 0
   - name: BattleBackground
     uniqueID: 2059202315
@@ -68,8 +64,26 @@ TagManager:
   - name: BattleCard
     uniqueID: 2289801735
     locked: 0
+  - name: BattleCardForeground
+    uniqueID: 4137187359
+    locked: 0
   - name: BattleFrame
     uniqueID: 2326748391
+    locked: 0
+  - name: TransBanner
+    uniqueID: 2586231761
+    locked: 0
+  - name: TransWave
+    uniqueID: 3105536185
+    locked: 0
+  - name: MovieBG
+    uniqueID: 2697487655
+    locked: 0
+  - name: MovieText
+    uniqueID: 2750443521
+    locked: 0
+  - name: ResetMenu
+    uniqueID: 549352737
     locked: 0
   - name: RenderTexture
     uniqueID: 370637431

@@ -14,10 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Dancing Witch
   Sprite: {fileID: 21300000, guid: 865a7cc74b3c94d49b3b7f37dc5ff498, type: 3}
-  OpeningText: The dancing witch teeters over to you.
-  VibeText: She doesn't care much for serious conversation.
-  ClosingText: She has become lost in the music again.
+  OpeningText: Hey, new kid! Perks of working here, they really know how to mix these
+    drinks! Pretty good party, huh?
+  VibeText: '*She doesn''t care much for serious conversation.*'
+  ClosingText: Alright, now go mingle dear! And enjoy yourself, life is short!
   Responses:
-  - DialogueCard: {fileID: 11400000, guid: 00a6ba9df6e52264eb5c7442d2b798cd, type: 2}
+  - DialogueCard: {fileID: 11400000, guid: c29cfaaac058ce549b014901af8b8fa4, type: 2}
+    ResponseTier: 2
+    ResponseText: "Oh my! Is that true? That\u2019s delicious, you must tell us more!"
+  - DialogueCard: {fileID: 11400000, guid: fe88cf5c2ef1dfb43a2667fdb2687205, type: 2}
+    ResponseTier: 0
+    ResponseText: "\u2026 Alrighty then!"
+  - DialogueCard: {fileID: 11400000, guid: 1e9f0d6b98ed5104abcbe811e3dc1ef3, type: 2}
     ResponseTier: 1
     ResponseText: I like your style!
+  - DialogueCard: {fileID: 11400000, guid: 16b1c44d7cd786d4db7e5a1f65b14393, type: 2}
+    ResponseTier: 2
+    ResponseText: Oh, I could say the same! That robe looks so good on you!
+  - DialogueCard: {fileID: 11400000, guid: f73999e56ab82c24f91af7eb2f1ff196, type: 2}
+    ResponseTier: 1
+    ResponseText: "Yeah, I guess that\u2019s possible!"
+  - DialogueCard: {fileID: 11400000, guid: c5a79ae7543a96a489d9522f1b4671b6, type: 2}
+    ResponseTier: 2
+    ResponseText: I know right! Life is meant to be enjoyed!
+  - DialogueCard: {fileID: 11400000, guid: 1e58fab13e494a44eaece599f39da6e1, type: 2}
+    ResponseTier: 1
+    ResponseText: "No big plans, I\u2019ve got to re-do some of my enchantments I\u2019ve
+      been neglecting."
+  - DialogueCard: {fileID: 11400000, guid: 6384f4ef0de439b468e5c107d464e1e5, type: 2}
+    ResponseTier: 2
+    ResponseText: What a delightful tale, sounds like you were a little terror!
+  - DialogueCard: {fileID: 11400000, guid: 94e928d4e5dd8a64f8d1a2f6f80b4bb9, type: 2}
+    ResponseTier: 0
+    ResponseText: ...Hm? Right, yes, the weather does that.
+  - DialogueCard: {fileID: 11400000, guid: daec11a7f5e020f48b169491ae8ce1c0, type: 2}
+    ResponseTier: 1
+    ResponseText: "I guess so, I don\u2019t like to think about such serious matters."
