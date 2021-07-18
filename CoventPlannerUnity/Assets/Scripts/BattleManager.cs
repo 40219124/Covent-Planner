@@ -13,6 +13,8 @@ public class BattleManager : MonoBehaviour
     private Transform SceneContainer;
     [SerializeField]
     private BattleHand Hand;
+    [SerializeField]
+    private Animator IconAnimator;
 
     public Transform BattleCharacterMark;
     public Transform BattleCharacterWings;
@@ -116,12 +118,7 @@ public class BattleManager : MonoBehaviour
         {
 
             yield return TextScroll(DialogueText, Opponent.VibeText);
-            WaitingForCard = true;
-            while (PlayedCard == null)
-            {
-                yield return null;
-            }
-            WaitingForCard = false;
+            yield return StartCoroutine(WaitForCard());
             // ~~~ play card
             DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails.Object);
             battleScore += (int)response.ResponseTier;
@@ -143,6 +140,20 @@ public class BattleManager : MonoBehaviour
         // ~~~ Transition out
         GameplayAdmin.Instance.ReturnToParty(battleScore);
 
+    }
+
+    private void ActivateButtonPromptIcon()
+    {
+        IconAnimator.SetBool("Button", true);
+    }
+    private void ActivateCardPromptIcon()
+    {
+        IconAnimator.SetBool("Card", true);
+    }
+    private void HidePromptIcon()
+    {
+        IconAnimator.SetBool("Button", false);
+        IconAnimator.SetBool("Card", false);
     }
 
     private IEnumerator TextScroll(TextMeshProUGUI textbox, string text)
@@ -173,15 +184,28 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator WaitForUser()
     {
+        ActivateButtonPromptIcon();
         bool wait = true;
         while (wait)
         {
-            if (Input.anyKeyDown)
+            if (Input.GetButtonDown("Confirm") || Input.GetMouseButtonDown(0))
             {
                 wait = false;
             }
             yield return null;
         }
+        HidePromptIcon();
+    }
+    private IEnumerator WaitForCard()
+    {
+        ActivateCardPromptIcon();
+        WaitingForCard = true;
+        while (PlayedCard == null)
+        {
+            yield return null;
+        }
+        WaitingForCard = false;
+        HidePromptIcon();
     }
 
     /// <summary>
