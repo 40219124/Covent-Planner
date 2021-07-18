@@ -59,4 +59,18 @@ public class ControlAdmin : MonoBehaviour
         // Load requested scene
         LoadScene(scene);
     }
+
+
+    public IEnumerator WaitForUser()
+    {
+        bool wait = true;
+        while (wait)
+        {
+            if (Input.GetButtonDown("Confirm") || Input.GetMouseButtonDown(0))
+            {
+                wait = false;
+            }
+            yield return null;
+        }
+    }
 }

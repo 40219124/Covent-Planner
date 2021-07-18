@@ -13,8 +13,6 @@ public class BattleManager : MonoBehaviour
     private Transform SceneContainer;
     [SerializeField]
     private BattleHand Hand;
-    [SerializeField]
-    private Animator IconAnimator;
 
     public Transform BattleCharacterMark;
     public Transform BattleCharacterWings;
@@ -144,57 +142,20 @@ public class BattleManager : MonoBehaviour
 
     private void ActivateButtonPromptIcon()
     {
-        IconAnimator.SetBool("Button", true);
+        DialogueText.ActivateButtonPromptIcon();
     }
     private void ActivateCardPromptIcon()
     {
-        IconAnimator.SetBool("Card", true);
+        DialogueText.ActivateCardPromptIcon();
     }
     private void HidePromptIcon()
     {
-        IconAnimator.SetBool("Button", false);
-        IconAnimator.SetBool("Card", false);
-    }
-
-    private IEnumerator TextScroll(TextMeshProUGUI textbox, string text)
-    {
-        float timeElapsed = 0.0f;
-
-        int lastProgress = -1;
-        while (lastProgress < text.Length)
-        {
-            yield return null;
-            if (Input.anyKey && timeElapsed > 0.3f)
-            {
-                break;
-            }
-            timeElapsed += Time.deltaTime;
-            int progress = (int)(timeElapsed / TimePerChar);
-            if (progress == lastProgress)
-            {
-                continue;
-            }
-            textbox.text = text.Substring(0, progress) + "<color=#00000000>" + text.Substring(progress);
-            lastProgress = progress;
-        }
-
-        textbox.text = text;
-        yield return null;
+        DialogueText.HidePromptIcon();
     }
 
     private IEnumerator WaitForUser()
     {
-        ActivateButtonPromptIcon();
-        bool wait = true;
-        while (wait)
-        {
-            if (Input.GetButtonDown("Confirm") || Input.GetMouseButtonDown(0))
-            {
-                wait = false;
-            }
-            yield return null;
-        }
-        HidePromptIcon();
+        yield return StartCoroutine(DialogueText.WaitForUser());
     }
     private IEnumerator WaitForCard()
     {

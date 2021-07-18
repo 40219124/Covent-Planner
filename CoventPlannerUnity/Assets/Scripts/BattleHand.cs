@@ -7,8 +7,6 @@ public class BattleHand : MonoBehaviour
     [SerializeField]
     private Transform CardPrefab;
     [SerializeField]
-    private Transform ExplanationBox;
-    [SerializeField]
     private TextBoxFiller ExplanationText;
 
     private bool ExplanationsVisible;
@@ -122,7 +120,7 @@ public class BattleHand : MonoBehaviour
         {
             ExplanationText.ClearText();
         }
-        ExplanationBox.gameObject.SetActive(state);
+        ExplanationText.gameObject.SetActive(state);
         if (state == true)
         {
             UnhoveredTime = 0.0f;

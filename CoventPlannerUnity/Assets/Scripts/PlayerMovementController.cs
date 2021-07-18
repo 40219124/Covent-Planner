@@ -38,6 +38,10 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameplayAdmin.Instance.ActiveInAdmin(GameplayAdmin.eGameState.Paused))
+        {
+            return;
+        }
         TakeDirInput();
         MoveToTarget();
 
