@@ -83,6 +83,7 @@ public class DialogueScreen : MonoBehaviour
         if (PlayingEnding)
         {
             // ~~~ Return to menu scene
+            ControlAdmin.Instance.ClearAllAndLoad(ControlAdmin.eSceneName.MainMenuScene);
             yield break;
         }
         yield return null;

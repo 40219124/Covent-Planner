@@ -7,7 +7,7 @@ public class ControlAdmin : MonoBehaviour
 {
     public static ControlAdmin Instance { get; private set; }
 
-    public enum eSceneName { BattleScene, ControlScene, GameplayAdminScene, PartyScene, TransitionScene }
+    public enum eSceneName { BattleScene, ControlScene, GameplayAdminScene, PartyScene, TransitionScene, MainMenuScene }
 
     private Scene ThisScene;
 
@@ -19,7 +19,7 @@ public class ControlAdmin : MonoBehaviour
     void Start()
     {
         ThisScene = SceneManager.GetActiveScene();
-        LoadScene(eSceneName.GameplayAdminScene);
+        LoadScene(eSceneName.MainMenuScene);
         LoadScene(eSceneName.TransitionScene);
     }
 

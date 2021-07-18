@@ -631,7 +631,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1868598644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1989738546}
+        m_TargetAssemblyTypeName: MainMenuEventRelay, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1868598644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +760,7 @@ GameObject:
   - component: {fileID: 1989738544}
   - component: {fileID: 1989738543}
   - component: {fileID: 1989738542}
+  - component: {fileID: 1989738546}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -785,7 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -838,3 +851,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1989738546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989738541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a519355ac071f04380152444ef13323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
