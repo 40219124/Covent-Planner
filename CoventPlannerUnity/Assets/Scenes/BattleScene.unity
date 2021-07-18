@@ -581,6 +581,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4290537973
       objectReference: {fileID: 0}
+    - target: {fileID: 5676300305635508361, guid: 579795e674c45de4b8a648df212cb017, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -157779937
+      objectReference: {fileID: 0}
     - target: {fileID: 8443720434592293409, guid: 579795e674c45de4b8a648df212cb017, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

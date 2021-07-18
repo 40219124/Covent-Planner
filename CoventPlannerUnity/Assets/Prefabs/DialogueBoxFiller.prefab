@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 5068174412265458746}
   IconAnimator: {fileID: 1320415625717929099}
-  DefaultTimePerChar: 0.05
+  DefaultTimePerChar: 0.03
   TimePerChar: 0.05
 --- !u!223 &5676300305635508361
 Canvas:
