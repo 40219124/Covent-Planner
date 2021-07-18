@@ -59,7 +59,8 @@ public class PlayerMovementController : MonoBehaviour
 
         if(Ending && TravelTarget == null)
         {
-            GameplayAdmin.Instance.EndRun();
+            GameplayAdmin.Instance.DoorExited();
+            Ending = false;
         }
     }
 

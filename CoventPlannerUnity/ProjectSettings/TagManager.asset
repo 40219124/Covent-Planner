@@ -82,6 +82,9 @@ TagManager:
   - name: MovieText
     uniqueID: 2750443521
     locked: 0
+  - name: ResetMenu
+    uniqueID: 549352737
+    locked: 0
   - name: RenderTexture
     uniqueID: 370637431
     locked: 0

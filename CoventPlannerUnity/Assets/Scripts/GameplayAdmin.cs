@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class GameplayAdmin : MonoBehaviour
 {
+    public class NPCToScore
+    {
+        public string NPC;
+        public int Score;
+    }
+
+    [SerializeField]
+    private ResetMenu ResetMenu;
+
     public static event System.Action StateChangeActivations;
 
     public static GameplayAdmin Instance { get; private set; }
@@ -21,6 +30,7 @@ public class GameplayAdmin : MonoBehaviour
     public eGameState GameState { get; private set; }
 
     private int RunScore = 0;
+    private List<NPCToScore> NPCScores = new List<NPCToScore>();
 
     private void Awake()
     {
@@ -56,9 +66,9 @@ public class GameplayAdmin : MonoBehaviour
         BattleManager.Instance.PrepareBattle(opponent);
     }
 
-    public void ReturnToParty(int battleScore)
+    public void ReturnToParty(NPCToScore battleScore)
     {
-        RunScore += battleScore;
+        NPCScores.Add(battleScore);
         SetGameScene(eGameState.Party);
         StateChangeActivations?.Invoke();
     }
@@ -85,10 +95,16 @@ public class GameplayAdmin : MonoBehaviour
         }
     }
 
-    public void EndRun()
+    public void DoorExited()
     {
         CardLibrary.Instance.CommitNewKnowledge();
+        SetGameRunning(eGameState.Paused);
+        ResetMenu.DisplayMenu(NPCScores);
         // ~~~ other stuff to do with restarting. Probably a coroutine
+    }
+
+    public void ResetRun()
+    {
         StartCoroutine(ResetRoutine());
     }
 
@@ -96,5 +112,10 @@ public class GameplayAdmin : MonoBehaviour
     {
         yield return null;
         ControlAdmin.Instance.ClearAllAndLoad(ControlAdmin.eSceneName.GameplayAdminScene);
+    }
+
+    public void NoMoreRuns()
+    {
+        DialogueScreen.Instance.PlayEnding();
     }
 }

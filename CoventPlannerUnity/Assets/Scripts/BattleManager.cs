@@ -123,12 +123,18 @@ public class BattleManager : MonoBehaviour
 
         yield return StartCoroutine(SlideCharacter(SlideOutProgress));
 
+        GameplayAdmin.NPCToScore npcScore = new GameplayAdmin.NPCToScore();
+        npcScore.NPC = Opponent.Name;
+        npcScore.Score = battleScore;
+
         Debug.Log($"Battle score {battleScore}");
+
+
 
         CleanTools();
 
         // ~~~ Transition out
-        GameplayAdmin.Instance.ReturnToParty(battleScore);
+        GameplayAdmin.Instance.ReturnToParty(npcScore);
 
     }
 
