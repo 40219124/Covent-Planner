@@ -142,6 +142,7 @@ public class BattleManager : MonoBehaviour
 
         // ~~~ Transition out
         GameplayAdmin.Instance.ReturnToParty(battleScore);
+
     }
 
     private IEnumerator TextScroll(TextMeshProUGUI textbox, string text)

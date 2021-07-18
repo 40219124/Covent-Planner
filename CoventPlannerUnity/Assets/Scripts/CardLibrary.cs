@@ -10,7 +10,7 @@ public class CardLibrary : MonoBehaviour
     public AllOpponentLibrarySO OpponentObjects;
 
     private bool[,] MatchupKnownTable;
-    private List<Vector2Int> FutureKnowledgeCoords;
+    private List<Vector2Int> FutureKnowledgeCoords = new List<Vector2Int>();
 
     private void Awake()
     {
