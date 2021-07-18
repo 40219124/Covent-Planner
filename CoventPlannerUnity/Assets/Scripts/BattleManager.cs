@@ -24,7 +24,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private float PowerC = 2.0f;
 
-    public TextMeshProUGUI DialogueText;
+    public TextBoxFiller DialogueText;
     [SerializeField]
     private float TimePerChar = 0.05f;
 
@@ -81,7 +81,7 @@ public class BattleManager : MonoBehaviour
         BattleCharacter.sprite = null;
         BattleCharacter.transform.position = BattleCharacterWings.position;
 
-        DialogueText.text = "";
+        DialogueText.ClearText();
 
         WaitingForCard = false;
         PlayedCard = null;
@@ -95,7 +95,7 @@ public class BattleManager : MonoBehaviour
         BattleCharacter.transform.position = BattleCharacterWings.position;
         BattleCharacter.sprite = opponent.Sprite;
 
-        DialogueText.text = "";
+        DialogueText.ClearText();
 
         Hand.FillHand();
     }
@@ -111,24 +111,24 @@ public class BattleManager : MonoBehaviour
         int battleScore = 0;
         yield return StartCoroutine(SlideCharacter(SlideInProgress));
         // ~~~ present text, etc
-        yield return TextScroll(DialogueText, Opponent.OpeningText);
+        yield return DialogueText.TextScroll(Opponent.OpeningText);
         yield return StartCoroutine(WaitForUser());
 
         for (int i = 0; i < 3; ++i)
         {
 
-            yield return TextScroll(DialogueText, Opponent.VibeText);
+            yield return DialogueText.TextScroll(Opponent.VibeText);
             yield return StartCoroutine(WaitForCard());
             // ~~~ play card
             DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails.Object);
             battleScore += (int)response.ResponseTier;
-            yield return TextScroll(DialogueText, response.ResponseText);
+            yield return DialogueText.TextScroll(response.ResponseText);
             yield return StartCoroutine(WaitForUser());
 
             PlayedCard = null;
         }
 
-        yield return TextScroll(DialogueText, Opponent.ClosingText);
+        yield return DialogueText.TextScroll(Opponent.ClosingText);
         yield return StartCoroutine(WaitForUser());
 
         yield return StartCoroutine(SlideCharacter(SlideOutProgress));

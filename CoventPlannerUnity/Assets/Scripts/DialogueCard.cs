@@ -6,6 +6,8 @@ using TMPro;
 public class DialogueCard : MonoBehaviour
 {
     public CardInstance CardDetails { get; private set; }
+    public eDialogueResponse Matchup { get; private set; }
+
     private SpriteRenderer CardSprite;
     [SerializeField]
     private SpriteRenderer BorderSprite;
@@ -13,10 +15,18 @@ public class DialogueCard : MonoBehaviour
     private TextMeshProUGUI TextElement;
     private int LocationInHand;
 
+    private static BattleHand Hand;
+
     private Vector3 VerticalChange = Vector3.up * 1.0f;
+
+    private bool Hovered = false;
 
     private void Start()
     {
+        if (Hand == null)
+        {
+            Hand = GetComponentInParent<BattleHand>();
+        }
         CardSprite = GetComponent<SpriteRenderer>();
     }
 
@@ -49,6 +59,8 @@ public class DialogueCard : MonoBehaviour
 
     private void HoverCard()
     {
+        Hovered = true;
+        Hand.NewHoveredCard(this);
         // ~~~ instant size/position change
         transform.Translate(VerticalChange);
         // bump to front of sorting ~~~ could do with better way to get number than set to 20
@@ -57,6 +69,8 @@ public class DialogueCard : MonoBehaviour
 
     private void UnHoverCard()
     {
+        Hovered = false;
+        Hand.CardUnhovered(this);
         // ~~~ shrink back down
         transform.Translate(-VerticalChange);
         SetZLocation(LocationInHand);
@@ -64,9 +78,9 @@ public class DialogueCard : MonoBehaviour
 
     private void ShowMatchup()
     {
-        eDialogueResponse score = CardLibrary.Instance.MatchupQuality(BattleManager.Instance.Opponent, CardDetails.Object);
-        BorderSprite.color = ColourFromMatchup(score);
-        if (score != eDialogueResponse.none)
+        Matchup = CardLibrary.Instance.MatchupQuality(BattleManager.Instance.Opponent, CardDetails.Object);
+        BorderSprite.color = ColourFromMatchup(Matchup);
+        if (Matchup != eDialogueResponse.none)
         {
             // ~~~ display helpful information
             // CardSprite.color = ColourFromMatchup(score);

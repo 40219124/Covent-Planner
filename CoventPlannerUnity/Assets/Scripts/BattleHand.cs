@@ -6,6 +6,15 @@ public class BattleHand : MonoBehaviour
 {
     [SerializeField]
     private Transform CardPrefab;
+    [SerializeField]
+    private Transform ExplanationBox;
+    [SerializeField]
+    private TextBoxFiller ExplanationText;
+
+    private bool ExplanationsVisible;
+    private DialogueCard HoveredCard;
+    private float NoHoverDisappearTime = 1.0f;
+    private float UnhoveredTime = 0.0f;
 
     private float CardGap = 1.0f;
 
@@ -19,6 +28,30 @@ public class BattleHand : MonoBehaviour
         {
             StartCoroutine(AssignInstantiatedCards());
             AssignOnEnable = false;
+        }
+        SetExplanationActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(1))
+        {
+            SetExplanationActive(!ExplanationsVisible);
+        }
+        if (ExplanationsVisible)
+        {
+            if (HoveredCard == null)
+            {
+                if(UnhoveredTime > NoHoverDisappearTime)
+                {
+                    SetExplanationActive(false);
+                }
+                UnhoveredTime += Time.deltaTime;
+            }
+            else
+            {
+                UnhoveredTime = 0.0f;
+            }
         }
     }
 
@@ -63,5 +96,46 @@ public class BattleHand : MonoBehaviour
             Destroy(card.gameObject);
         }
         Cards.Clear();
+    }
+
+    public void NewHoveredCard(DialogueCard card)
+    {
+        HoveredCard = card;
+        if (ExplanationsVisible)
+        {
+            ShowCardExplanation();
+        }
+    }
+
+    public void CardUnhovered(DialogueCard card)
+    {
+        if(HoveredCard == card)
+        {
+            HoveredCard = null;
+        }
+    }
+
+    public void SetExplanationActive(bool state)
+    {
+        ExplanationsVisible = state;
+        if (state == false)
+        {
+            ExplanationText.ClearText();
+        }
+        ExplanationBox.gameObject.SetActive(state);
+        if (state == true)
+        {
+            UnhoveredTime = 0.0f;
+            ShowCardExplanation();
+        }
+    }
+
+    public void ShowCardExplanation()
+    {
+        if(HoveredCard == null)
+        {
+            return;
+        }
+        StartCoroutine(ExplanationText.TextScroll(HoveredCard.CardDetails.Object.Body));
     }
 }
