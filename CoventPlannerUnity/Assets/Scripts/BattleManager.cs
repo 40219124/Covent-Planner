@@ -11,6 +11,8 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField]
     private Transform SceneContainer;
+    [SerializeField]
+    private BattleHand Hand;
 
     public Transform BattleCharacterMark;
     public Transform BattleCharacterWings;
@@ -24,13 +26,22 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private float TimePerChar = 0.05f;
 
-    public BattleOpponentSO DebugOpponent;
-    private BattleOpponentSO Opponent;
+    public BattleOpponentSO Opponent { get; private set; }
 
     private GameplayAdmin.eGameState ThisState = GameplayAdmin.eGameState.Battle;
 
     public bool WaitingForCard { get; private set; }
     DialogueCard PlayedCard = null;
+
+    private void OnEnable()
+    {
+        GameplayAdmin.StateChangeActivations += UpdateState;
+    }
+
+    private void OnDisable()
+    {
+        GameplayAdmin.StateChangeActivations -= UpdateState;
+    }
 
     private void Awake()
     {
@@ -47,27 +58,20 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
+        UpdateState();
         CleanTools();
     }
 
+    private void UpdateState()
+    {
+        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
+    }
     public void SetActive(bool state)
     {
         SceneContainer.gameObject.SetActive(state);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Time.time % 5 <= 1)
-        {
-            if (Opponent == null)
-            {
-                PrepareBattle(DebugOpponent);
-                StartBattle();
-            }
-        }
-    }
+
 
     private void CleanTools()
     {
@@ -79,6 +83,8 @@ public class BattleManager : MonoBehaviour
 
         WaitingForCard = false;
         PlayedCard = null;
+
+        Hand.EmptyHand();
     }
 
     public void PrepareBattle(BattleOpponentSO opponent)
@@ -88,12 +94,14 @@ public class BattleManager : MonoBehaviour
         BattleCharacter.sprite = opponent.Sprite;
 
         DialogueText.text = "";
+
+        Hand.FillHand();
     }
 
     public void StartBattle()
     {
+        SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
         StartCoroutine(RunBattle());
-
     }
 
     private IEnumerator RunBattle()
@@ -115,7 +123,7 @@ public class BattleManager : MonoBehaviour
             }
             WaitingForCard = false;
             // ~~~ play card
-            DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails);
+            DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails.Object);
             battleScore += (int)response.ResponseTier;
             yield return TextScroll(DialogueText, response.ResponseText);
             yield return StartCoroutine(WaitForUser());
@@ -133,6 +141,7 @@ public class BattleManager : MonoBehaviour
         CleanTools();
 
         // ~~~ Transition out
+        GameplayAdmin.Instance.ReturnToParty(battleScore);
     }
 
     private IEnumerator TextScroll(TextMeshProUGUI textbox, string text)
@@ -182,6 +191,7 @@ public class BattleManager : MonoBehaviour
         if (WaitingForCard)
         {
             PlayedCard = card;
+            CardLibrary.Instance.CombinationPlayed(Opponent, card.CardDetails.Object);
         }
         return WaitingForCard;
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameplayAdmin : MonoBehaviour
 {
+    public static event System.Action StateChangeActivations;
+
     public static GameplayAdmin Instance { get; private set; }
 
     [System.Flags]
@@ -16,6 +18,7 @@ public class GameplayAdmin : MonoBehaviour
     }
     public eGameState GameState { get; private set; }
 
+    private int RunScore = 0;
 
     private void Awake()
     {
@@ -27,12 +30,15 @@ public class GameplayAdmin : MonoBehaviour
         {
             Debug.LogError($"Duplicate {GetType()}");
             Destroy(gameObject);
+            return;
         }
+
+        CardDeck.PopulateDeck();
     }
     // Start is called before the first frame update
     void Start()
     {
-        GameState = eGameState.Paused | eGameState.Battle;
+        GameState = eGameState.Paused | eGameState.Party;
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.PartyScene);
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.BattleScene);
     }
@@ -45,5 +51,37 @@ public class GameplayAdmin : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void StartBattleWith(BattleOpponentSO opponent)
+    {
+        SwapState(eGameState.Battle, eGameState.Party);
+        // ~~~ everything else
+        TransitionManager.Instance.PlayBattleOpeningTransition();
+        Debug.Log("Ping!");
+        BattleManager.Instance.PrepareBattle(opponent);
+    }
+
+    public void ReturnToParty(int battleScore)
+    {
+        RunScore += battleScore;
+        SwapState(eGameState.Party, eGameState.Battle);
+        StateChangeActivations?.Invoke();
+    }
+
+    private void SwapState(eGameState newState, eGameState oldState)
+    {
+        GameState &= ~oldState;
+        GameState |= newState;
+    }
+
+    public void TransitionFinished()
+    {
+        StateChangeActivations?.Invoke();
+        TransitionManager.Instance.CleanUpTransition();
+        if (ActiveInAdmin(eGameState.Battle))
+        {
+            BattleManager.Instance.StartBattle();
+        }
     }
 }

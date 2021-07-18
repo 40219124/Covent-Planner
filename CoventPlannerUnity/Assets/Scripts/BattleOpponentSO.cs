@@ -25,12 +25,17 @@ public class BattleOpponentSO : ScriptableObject
 
     public eDialogueResponse GetCardTier(DialogueCardSO card)
     {
-        return Responses.Find(x => x.DialogueCard == card).ResponseTier;
+        DialogueResponse response = GetFullResponse(card);
+        if(response == null)
+        {
+            return eDialogueResponse.none;
+        }
+        return response.ResponseTier;
     }
 
     public string GetResponseText(DialogueCardSO card)
     {
-        return Responses.Find(x => x.DialogueCard == card).ResponseText;
+        return Responses.Find(x => x.DialogueCard == card)?.ResponseText;
     }
 
     public DialogueResponse GetFullResponse(DialogueCardSO card)

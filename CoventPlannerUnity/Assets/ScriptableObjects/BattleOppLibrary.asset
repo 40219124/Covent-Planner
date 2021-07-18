@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d14d5f5cb95702429ec5be68ca20dc0, type: 3}
+  m_Name: BattleOppLibrary
+  m_EditorClassIdentifier: 
+  Objects:
+  - NPC: 4
+    Object: {fileID: 11400000, guid: f224f3e65e3a3294885f231ec939306e, type: 2}

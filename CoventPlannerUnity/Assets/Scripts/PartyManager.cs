@@ -12,6 +12,18 @@ public class PartyManager : MonoBehaviour
     private GameplayAdmin.eGameState ThisState = GameplayAdmin.eGameState.Party;
 
 
+
+    private void OnEnable()
+    {
+        GameplayAdmin.StateChangeActivations += UpdateState;
+    }
+
+    private void OnDisable()
+    {
+        GameplayAdmin.StateChangeActivations -= UpdateState;
+    }
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +39,10 @@ public class PartyManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
+    {
+        UpdateState();
+    }
+    private void UpdateState()
     {
         SetActive(GameplayAdmin.Instance.ActiveInAdmin(ThisState));
     }

@@ -6,11 +6,11 @@ public class TransitionEventsRelay : MonoBehaviour
 {
     public void BattleStartedTransEnd()
     {
-
+        TransitionManager.Instance.TransitionFinished();
     }
 
     public void BattleEndedTransEnd()
     {
-
+        TransitionManager.Instance.TransitionFinished();
     }
 }

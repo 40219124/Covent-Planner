@@ -1,26 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueCard : MonoBehaviour
 {
-    public DialogueCardSO CardDetails;
+    public CardInstance CardDetails { get; private set; }
     private SpriteRenderer SpriteRenderer;
+    private TextMeshProUGUI TextElement;
     private int LocationInHand;
-    private bool IsUsable = true;
 
     private Vector3 VerticalChange = Vector3.up * 1.0f;
 
-    private void Awake()
+    private void Start()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
+        TextElement = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void AssignCard(DialogueCardSO card)
+    public void AssignCard(CardInstance card)
     {
         CardDetails = card;
-        SpriteRenderer.sprite = CardDetails.Sprite;
+        SpriteRenderer.sprite = CardDetails.Object.Sprite;
         SpriteRenderer.color = Color.white;
+
+       // TextElement.text = CardDetails.Object.Body;
+
+        SetUsable(card.Playable);
+
+        ShowMatchup();
     }
 
     public void SetHandLocation(int location)
@@ -37,7 +45,7 @@ public class DialogueCard : MonoBehaviour
         transform.position = pos;
     }
 
-    public void HoverCard()
+    private void HoverCard()
     {
         // ~~~ instant size/position change
         transform.Translate(VerticalChange);
@@ -45,22 +53,26 @@ public class DialogueCard : MonoBehaviour
         SetZLocation(20);
     }
 
-    public void UnHoverCard()
+    private void UnHoverCard()
     {
         // ~~~ shrink back down
         transform.Translate(-VerticalChange);
         SetZLocation(LocationInHand);
     }
 
-    public void ShowMatchup(BattleOpponentSO opponent)
+    private void ShowMatchup()
     {
-        eDialogueResponse score = opponent.GetCardTier(CardDetails);
-        // ~~~ display helpful information
+        eDialogueResponse score = CardLibrary.Instance.MatchupQuality(BattleManager.Instance.Opponent, CardDetails.Object);
+        if (score != eDialogueResponse.none)
+        {
+            // ~~~ display helpful information
+
+        }
     }
 
     public void SetUsable(bool state)
     {
-        IsUsable = state;
+        CardDetails.Playable = state;
         if (state == false)
         {
             SpriteRenderer.color = Color.grey;
@@ -73,7 +85,7 @@ public class DialogueCard : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (IsUsable)
+        if (CardDetails.Playable)
         {
             if (BattleManager.Instance.PlayCard(this))
             {
