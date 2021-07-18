@@ -7,6 +7,8 @@ public enum eDialogueResponse { none = -1, red = 0, orange = 1, green = 2 }
 
 public class BattleManager : MonoBehaviour
 {
+    public static event System.Action<int> CardPlayedEvent;
+
     public static BattleManager Instance { get; private set; }
 
     [SerializeField]
@@ -112,6 +114,7 @@ public class BattleManager : MonoBehaviour
             // ~~~ play card
             DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails.Object);
             battleScore += (int)response.ResponseTier;
+            CardPlayedEvent?.Invoke((int)response.ResponseTier);
             yield return DialogueText.TextScroll(response.ResponseText);
             yield return StartCoroutine(WaitForUser());
 
