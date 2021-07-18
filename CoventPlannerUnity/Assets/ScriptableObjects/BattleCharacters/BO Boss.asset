@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9683e3ba60ca7934087f405a9ebbaead, type: 3}
   m_Name: BO Boss
   m_EditorClassIdentifier: 
-  Name: Boss
+  Name: Your Boss
   Sprite: {fileID: 21300000, guid: c27d68e2e672974479d7ac6e07e0a494, type: 3}
   OpeningText: "How\u2019s my favourite new hire, eh? As you can see, no expenses
     were spared here, only the best for my people!"

@@ -7,14 +7,14 @@ public enum eDialogueResponse { none = -1, red = 0, orange = 1, green = 2 }
 
 public class BattleManager : MonoBehaviour
 {
+    public static event System.Action<int> CardPlayedEvent;
+
     public static BattleManager Instance { get; private set; }
 
     [SerializeField]
     private Transform SceneContainer;
     [SerializeField]
     private BattleHand Hand;
-    [SerializeField]
-    private Animator IconAnimator;
 
     public Transform BattleCharacterMark;
     public Transform BattleCharacterWings;
@@ -47,15 +47,7 @@ public class BattleManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError($"Duplicate {GetType()}");
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -122,6 +114,7 @@ public class BattleManager : MonoBehaviour
             // ~~~ play card
             DialogueResponse response = Opponent.GetFullResponse(PlayedCard.CardDetails.Object);
             battleScore += (int)response.ResponseTier;
+            CardPlayedEvent?.Invoke((int)response.ResponseTier);
             yield return DialogueText.TextScroll(response.ResponseText);
             yield return StartCoroutine(WaitForUser());
 
@@ -133,68 +126,37 @@ public class BattleManager : MonoBehaviour
 
         yield return StartCoroutine(SlideCharacter(SlideOutProgress));
 
+        GameplayAdmin.NPCToScore npcScore = new GameplayAdmin.NPCToScore();
+        npcScore.NPC = Opponent.Name;
+        npcScore.Score = battleScore;
+
         Debug.Log($"Battle score {battleScore}");
+
+
 
         CleanTools();
 
         // ~~~ Transition out
-        GameplayAdmin.Instance.ReturnToParty(battleScore);
+        GameplayAdmin.Instance.ReturnToParty(npcScore);
 
     }
 
     private void ActivateButtonPromptIcon()
     {
-        IconAnimator.SetBool("Button", true);
+        DialogueText.ActivateButtonPromptIcon();
     }
     private void ActivateCardPromptIcon()
     {
-        IconAnimator.SetBool("Card", true);
+        DialogueText.ActivateCardPromptIcon();
     }
     private void HidePromptIcon()
     {
-        IconAnimator.SetBool("Button", false);
-        IconAnimator.SetBool("Card", false);
-    }
-
-    private IEnumerator TextScroll(TextMeshProUGUI textbox, string text)
-    {
-        float timeElapsed = 0.0f;
-
-        int lastProgress = -1;
-        while (lastProgress < text.Length)
-        {
-            yield return null;
-            if (Input.anyKey && timeElapsed > 0.3f)
-            {
-                break;
-            }
-            timeElapsed += Time.deltaTime;
-            int progress = (int)(timeElapsed / TimePerChar);
-            if (progress == lastProgress)
-            {
-                continue;
-            }
-            textbox.text = text.Substring(0, progress) + "<color=#00000000>" + text.Substring(progress);
-            lastProgress = progress;
-        }
-
-        textbox.text = text;
-        yield return null;
+        DialogueText.HidePromptIcon();
     }
 
     private IEnumerator WaitForUser()
     {
-        ActivateButtonPromptIcon();
-        bool wait = true;
-        while (wait)
-        {
-            if (Input.GetButtonDown("Confirm") || Input.GetMouseButtonDown(0))
-            {
-                wait = false;
-            }
-            yield return null;
-        }
-        HidePromptIcon();
+        yield return StartCoroutine(DialogueText.WaitForUser());
     }
     private IEnumerator WaitForCard()
     {

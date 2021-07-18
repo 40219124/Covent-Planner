@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9683e3ba60ca7934087f405a9ebbaead, type: 3}
   m_Name: BO Accountant
   m_EditorClassIdentifier: 
-  Name: Accountants
+  Name: The Accountants
   Sprite: {fileID: 21300000, guid: 11090f846b86adb4c97a37743cfaaba5, type: 3}
   OpeningText: Oh, hello. Sorry to bump into you like that. Hope you are enjoying
     the festivities, the sandwiches are quite good this year.

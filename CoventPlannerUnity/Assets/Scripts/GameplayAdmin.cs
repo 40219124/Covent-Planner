@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class GameplayAdmin : MonoBehaviour
 {
+    public class NPCToScore
+    {
+        public string NPC;
+        public int Score;
+    }
+
+    [SerializeField]
+    private ResetMenu ResetMenu;
+
     public static event System.Action StateChangeActivations;
 
     public static GameplayAdmin Instance { get; private set; }
@@ -21,26 +30,19 @@ public class GameplayAdmin : MonoBehaviour
     public eGameState GameState { get; private set; }
 
     private int RunScore = 0;
+    private List<NPCToScore> NPCScores = new List<NPCToScore>();
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError($"Duplicate {GetType()}");
-            Destroy(gameObject);
-            return;
-        }
+        Instance = this;
 
         CardDeck.PopulateDeck();
     }
     // Start is called before the first frame update
     void Start()
     {
-        GameState = eGameState.Paused | eGameState.Party;
+        GameState = eGameState.Running | eGameState.Party;
+        DialogueScreen.Instance.PlayOpening();
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.PartyScene);
         ControlAdmin.Instance.LoadScene(ControlAdmin.eSceneName.BattleScene);
     }
@@ -57,24 +59,30 @@ public class GameplayAdmin : MonoBehaviour
 
     public void StartBattleWith(BattleOpponentSO opponent)
     {
-        SwapState(eGameState.Battle, eGameState.Party);
+        SetGameScene(eGameState.Battle);
         // ~~~ everything else
         TransitionManager.Instance.PlayBattleOpeningTransition();
         Debug.Log("Ping!");
         BattleManager.Instance.PrepareBattle(opponent);
     }
 
-    public void ReturnToParty(int battleScore)
+    public void ReturnToParty(NPCToScore battleScore)
     {
-        RunScore += battleScore;
-        SwapState(eGameState.Party, eGameState.Battle);
+        NPCScores.Add(battleScore);
+        SetGameScene(eGameState.Party);
         StateChangeActivations?.Invoke();
     }
 
-    private void SwapState(eGameState newState, eGameState oldState)
+    public void SetGameRunning(eGameState state)
     {
-        GameState &= ~oldState;
-        GameState |= newState;
+        GameState &= ~eGameState.ExeGroup;
+        GameState |= state;
+    }
+
+    private void SetGameScene(eGameState scene)
+    {
+        GameState &= ~eGameState.SceneGroup;
+        GameState |= scene;
     }
 
     public void TransitionFinished()
@@ -87,8 +95,27 @@ public class GameplayAdmin : MonoBehaviour
         }
     }
 
-    public void EndRun()
+    public void DoorExited()
     {
         CardLibrary.Instance.CommitNewKnowledge();
+        SetGameRunning(eGameState.Paused);
+        ResetMenu.DisplayMenu(NPCScores);
+        // ~~~ other stuff to do with restarting. Probably a coroutine
+    }
+
+    public void ResetRun()
+    {
+        StartCoroutine(ResetRoutine());
+    }
+
+    private IEnumerator ResetRoutine()
+    {
+        yield return null;
+        ControlAdmin.Instance.ClearAllAndLoad(ControlAdmin.eSceneName.GameplayAdminScene);
+    }
+
+    public void NoMoreRuns()
+    {
+        DialogueScreen.Instance.PlayEnding();
     }
 }

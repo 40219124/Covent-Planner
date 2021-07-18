@@ -23,6 +23,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private eFourDirs FacingDir = eFourDirs.Down;
 
+    private bool Ending = false;
+
     [SerializeField]
     private float Speed = 2.0f;
 
@@ -38,10 +40,28 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TakeDirInput();
+        bool paused = GameplayAdmin.Instance.ActiveInAdmin(GameplayAdmin.eGameState.Paused);
+        if (paused)
+        {
+            return;
+        }
+
+        if (!Ending)
+        {
+            TakeDirInput();
+        }
         MoveToTarget();
 
-        PerformActionUpdate();
+        if (!Ending)
+        {
+            PerformActionUpdate();
+        }
+
+        if(Ending && TravelTarget == null)
+        {
+            GameplayAdmin.Instance.DoorExited();
+            Ending = false;
+        }
     }
 
     private void TakeDirInput()
@@ -158,11 +178,18 @@ public class PlayerMovementController : MonoBehaviour
 
         Vector2 posPlusDir = (Vector2)transform.position + TravelDir;
         RaycastHit2D hit = Physics2D.Raycast(posPlusDir, Vector2.zero, 1.0f, LayerMask.GetMask("Impassable"));
-        if(hit.collider != null && hit.collider.CompareTag("NoMove"))
+        if (hit.collider != null)
         {
-            Debug.Log("Hit!");
-            TravelTarget = null;
-            return;
+            if (hit.collider.CompareTag("NoMove"))
+            {
+                Debug.Log("Hit!");
+                TravelTarget = null;
+                return;
+            }
+            else if (hit.collider.CompareTag("Finish"))
+            {
+                Ending = true;
+            }
         }
         else
         {
