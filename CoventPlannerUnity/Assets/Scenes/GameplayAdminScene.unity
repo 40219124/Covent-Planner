@@ -180,7 +180,7 @@ SpriteRenderer:
   m_SortingLayerID: -1597479641
   m_SortingLayer: 12
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c31ab66aad2033a4b947f416d19afee6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -262,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 5022276683472105451, guid: 579795e674c45de4b8a648df212cb017, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5068174412265458746, guid: 579795e674c45de4b8a648df212cb017, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5068174412265458746, guid: 579795e674c45de4b8a648df212cb017, type: 3}
       propertyPath: m_fontColor.b
@@ -418,6 +422,7 @@ MonoBehaviour:
   Background: {fileID: 385335373}
   Opening: {fileID: 11400000, guid: e987e66af534b0049954226368fb4b91, type: 2}
   PreEntrance: {fileID: 11400000, guid: 73781e9bf7cd49b48971106c21104215, type: 2}
+  RealEnding: {fileID: 11400000, guid: 2574fe70a3cec844495f22d4dfb0a1a7, type: 2}
 --- !u!4 &1641094476
 Transform:
   m_ObjectHideFlags: 0

@@ -13,15 +13,7 @@ public class ControlAdmin : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError($"Duplicate {GetType()}");
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -38,9 +30,13 @@ public class ControlAdmin : MonoBehaviour
             SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Additive);
         }
     }
-
     public void ClearAllAndLoad(eSceneName scene)
     {
+        StartCoroutine(ClearAllAndLoadCo(scene));
+    }
+    private IEnumerator ClearAllAndLoadCo(eSceneName scene)
+    {
+        yield return null;
         // Get all scenes
         int sCount = SceneManager.sceneCount;
         Scene[] scenes = new Scene[sCount];

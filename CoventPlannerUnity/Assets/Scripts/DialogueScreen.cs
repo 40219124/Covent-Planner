@@ -16,6 +16,8 @@ public class DialogueScreen : MonoBehaviour
     private DialogueCutsceneSO Opening;
     [SerializeField]
     private DialogueCutsceneSO PreEntrance;
+    [SerializeField]
+    private DialogueCutsceneSO RealEnding;
 
     private Camera MainCamera;
 
@@ -47,12 +49,22 @@ public class DialogueScreen : MonoBehaviour
     public void PlayOpening()
     {
         StartCoroutine(PlayScenes(new List<DialogueCutsceneSO>() { Opening, PreEntrance }));
+    }
 
+    public void PlayPreEntrance()
+    {
+        StartCoroutine(PlayScenes(new List<DialogueCutsceneSO>() { PreEntrance }));
+    }
+
+    public void PlayEnding()
+    {
+        StartCoroutine(PlayScenes(new List<DialogueCutsceneSO>() { RealEnding }));
     }
 
     private IEnumerator PlayScenes(List<DialogueCutsceneSO> scenes)
     {
-
+        // Pause game
+        GameplayAdmin.Instance.SetGameRunning(GameplayAdmin.eGameState.Paused);
         SetVisible(true);
         yield return null;
         yield return null;
@@ -67,6 +79,8 @@ public class DialogueScreen : MonoBehaviour
         CleanTools();
         yield return null;
         SetVisible(false);
+        // Resume game
+        GameplayAdmin.Instance.SetGameRunning(GameplayAdmin.eGameState.Running);
     }
 
     private IEnumerator PlayScene(DialogueCutsceneSO scene)
@@ -77,9 +91,6 @@ public class DialogueScreen : MonoBehaviour
             Debug.LogError("No such scene");
             yield break;
         }
-
-        // Pause game
-        GameplayAdmin.Instance.SetGameRunning(GameplayAdmin.eGameState.Paused);
 
         // Run lines
         foreach (DialogueLineSO line in scene.Lines)
@@ -114,8 +125,6 @@ public class DialogueScreen : MonoBehaviour
         }
 
         yield return null;
-        // Resume game
-        GameplayAdmin.Instance.SetGameRunning(GameplayAdmin.eGameState.Running);
     }
 
 

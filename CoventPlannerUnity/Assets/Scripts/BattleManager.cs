@@ -45,15 +45,7 @@ public class BattleManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError($"Duplicate {GetType()}");
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
     // Start is called before the first frame update
     void Start()

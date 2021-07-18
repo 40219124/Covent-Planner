@@ -24,16 +24,7 @@ public class GameplayAdmin : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError($"Duplicate {GetType()}");
-            Destroy(gameObject);
-            return;
-        }
+        Instance = this;
 
         CardDeck.PopulateDeck();
     }
@@ -97,5 +88,13 @@ public class GameplayAdmin : MonoBehaviour
     public void EndRun()
     {
         CardLibrary.Instance.CommitNewKnowledge();
+        // ~~~ other stuff to do with restarting. Probably a coroutine
+        StartCoroutine(ResetRoutine());
+    }
+
+    private IEnumerator ResetRoutine()
+    {
+        yield return null;
+        ControlAdmin.Instance.ClearAllAndLoad(ControlAdmin.eSceneName.GameplayAdminScene);
     }
 }

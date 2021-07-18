@@ -14,16 +14,7 @@ public class CardLibrary : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError($"Duplicate {GetType()}");
-            Destroy(gameObject);
-            return;
-        }
+        Instance = this;
 
 
         MatchupKnownTable = new bool[OpponentObjects.AllOpponents.Count, CardObjects.AllCards.Count];
