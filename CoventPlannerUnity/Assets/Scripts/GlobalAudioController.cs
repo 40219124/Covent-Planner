@@ -36,21 +36,8 @@ public class GlobalAudioController : MonoBehaviour
     //battlemanager.instance.opponent
     public void PlayBattleOutcome(int successCode)
     {
-        switch (successCode)
-        {
-            case 1:
-                PlaySFX(BattleResponseClips[0]);
-                break;
-            case 2:
-                PlaySFX(BattleResponseClips[1]);
-                break;
-            case 3:
-                PlaySFX(BattleResponseClips[2]);
-                break;
-            default:
-                Debug.LogError("Bad success code from battle.");
-                break;
-        }
+        PlaySFX(BattleResponseClips[successCode]);
+
     }
 
     // Update is called once per frame
@@ -75,7 +62,7 @@ public class GlobalAudioController : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
-        foreach (AudioSource channel in AmbientChannels)
+        foreach (AudioSource channel in SFXChannels)
         {
             if (!channel.isPlaying)
             {
@@ -89,7 +76,7 @@ public class GlobalAudioController : MonoBehaviour
 
     public void PlayMusic(AudioClip clip)
     {
-        foreach (AudioSource channel in AmbientChannels)
+        foreach (AudioSource channel in MusicChannels)
         {
             if (!channel.isPlaying)
             {

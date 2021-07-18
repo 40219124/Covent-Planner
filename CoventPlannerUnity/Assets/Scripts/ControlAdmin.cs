@@ -47,7 +47,7 @@ public class ControlAdmin : MonoBehaviour
         // Unload all other scenes (not the control scene)
         foreach (Scene s in scenes)
         {
-            if (s != ThisScene)
+            if (s != ThisScene && s.name != eSceneName.TransitionScene.ToString())
             {
                 SceneManager.UnloadSceneAsync(s);
             }
