@@ -157,7 +157,7 @@ public class PlayerMovementController : MonoBehaviour
         SetFacing(PriorityInputDir);
 
         Vector2 posPlusDir = (Vector2)transform.position + TravelDir;
-        RaycastHit2D hit = Physics2D.Raycast(posPlusDir, Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(posPlusDir, Vector2.zero, 1.0f, LayerMask.GetMask("Impassable"));
         if(hit.collider != null && hit.collider.CompareTag("NoMove"))
         {
             Debug.Log("Hit!");
@@ -205,7 +205,8 @@ public class PlayerMovementController : MonoBehaviour
             return;
         }
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll((Vector2)transform.position + DirFromFour(FacingDir), Vector2.zero);
+        Debug.Log((Vector2)transform.position + DirFromFour(FacingDir));
+        RaycastHit2D[] hits = Physics2D.RaycastAll((Vector2)transform.position + DirFromFour(FacingDir), Vector2.zero, 1.0f, LayerMask.GetMask("Person"));
         foreach(RaycastHit2D hit in hits)
         {
             if (hit.collider.CompareTag("NPC"))

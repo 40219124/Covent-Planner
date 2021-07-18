@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9683e3ba60ca7934087f405a9ebbaead, type: 3}
+  m_Name: BO Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Sprite: {fileID: 21300000, guid: c27d68e2e672974479d7ac6e07e0a494, type: 3}
+  OpeningText: "How\u2019s my favourite new hire, eh? As you can see, no expenses
+    were spared here, only the best for my people!"
+  VibeText: '*She''s your boss.*'
+  ClosingText: Okay kid, I'm sure you don't want to be talking to your boss this
+    whole evening, I'll let you go!
+  Responses:
+  - DialogueCard: {fileID: 11400000, guid: c29cfaaac058ce549b014901af8b8fa4, type: 2}
+    ResponseTier: 0
+    ResponseText: "Hm. I hope you don\u2019t spread rumours like this to outsiders..?"
+  - DialogueCard: {fileID: 11400000, guid: fe88cf5c2ef1dfb43a2667fdb2687205, type: 2}
+    ResponseTier: 1
+    ResponseText: "I haven\u2019t heard that one before!"
+  - DialogueCard: {fileID: 11400000, guid: 1e9f0d6b98ed5104abcbe811e3dc1ef3, type: 2}
+    ResponseTier: 1
+    ResponseText: Hah, good one!
+  - DialogueCard: {fileID: 11400000, guid: 16b1c44d7cd786d4db7e5a1f65b14393, type: 2}
+    ResponseTier: 2
+    ResponseText: "Ohh, I like you, new guy! Keep up like that and your future\u2019s
+      looking bright!"
+  - DialogueCard: {fileID: 11400000, guid: f73999e56ab82c24f91af7eb2f1ff196, type: 2}
+    ResponseTier: 0
+    ResponseText: "Let\u2019s just enjoy the party now, hm?"
+  - DialogueCard: {fileID: 11400000, guid: c5a79ae7543a96a489d9522f1b4671b6, type: 2}
+    ResponseTier: 1
+    ResponseText: Please do get back to me about this during work hours.
+  - DialogueCard: {fileID: 11400000, guid: 1e58fab13e494a44eaece599f39da6e1, type: 2}
+    ResponseTier: 2
+    ResponseText: The missus and I are flying abroad, nothing big! Just a lovely
+      weekend getaway.
+  - DialogueCard: {fileID: 11400000, guid: 6384f4ef0de439b468e5c107d464e1e5, type: 2}
+    ResponseTier: 0
+    ResponseText: I am not sure I, as your employer, needed to know that.
+  - DialogueCard: {fileID: 11400000, guid: 94e928d4e5dd8a64f8d1a2f6f80b4bb9, type: 2}
+    ResponseTier: 1
+    ResponseText: Hm? Oh yeah, I guess it has been warmer than usual.
+  - DialogueCard: {fileID: 11400000, guid: daec11a7f5e020f48b169491ae8ce1c0, type: 2}
+    ResponseTier: 2
+    ResponseText: "That\u2019s what I always say as well. Both points of view have
+      their merits!"
