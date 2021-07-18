@@ -20,11 +20,14 @@ public class GlobalAudioController : MonoBehaviour
 
     private void OnEnable()
     {
-        BattleManager.CardPlayedEvent +=
+        BattleManager.CardPlayedEvent += PlayBattleOutcome;
     }
 
     //battlemanager.instance.opponent
-    PlayBattleOutcome
+    public void PlayBattleOutcome(int successCode)
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
