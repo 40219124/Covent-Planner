@@ -28,6 +28,11 @@ public class GlobalAudioController : MonoBehaviour
         BattleManager.CardPlayedEvent += PlayBattleOutcome;
     }
 
+    private void OnDisable()
+    {
+        BattleManager.CardPlayedEvent -= PlayBattleOutcome;
+    }
+
     //battlemanager.instance.opponent
     public void PlayBattleOutcome(int successCode)
     {
@@ -62,6 +67,7 @@ public class GlobalAudioController : MonoBehaviour
             {
                 channel.clip = clip;
                 channel.Play();
+                break;
             }
         }
     }
@@ -75,6 +81,7 @@ public class GlobalAudioController : MonoBehaviour
             {
                 channel.clip = clip;
                 channel.Play();
+                break;
             }
         }
     }
@@ -88,6 +95,7 @@ public class GlobalAudioController : MonoBehaviour
             {
                 channel.clip = clip;
                 channel.Play();
+                break;
             }
         }
     }

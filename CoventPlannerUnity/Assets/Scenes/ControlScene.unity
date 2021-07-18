@@ -825,6 +825,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7190610848919857976, guid: 26662e3590cb2734d951c95b7f02ba41, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190610848974896075, guid: 26662e3590cb2734d951c95b7f02ba41, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7190610849373726312, guid: 26662e3590cb2734d951c95b7f02ba41, type: 3}
       propertyPath: m_Name
       value: GlobalAudioController
@@ -872,6 +880,14 @@ PrefabInstance:
     - target: {fileID: 7190610849373726314, guid: 26662e3590cb2734d951c95b7f02ba41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190610849489614188, guid: 26662e3590cb2734d951c95b7f02ba41, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190610849577604781, guid: 26662e3590cb2734d951c95b7f02ba41, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26662e3590cb2734d951c95b7f02ba41, type: 3}
