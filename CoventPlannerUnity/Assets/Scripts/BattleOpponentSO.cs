@@ -21,6 +21,8 @@ public class BattleOpponentSO : ScriptableObject
     public string VibeText;
     public string ClosingText;
 
+    public eNPC NPCType;
+
     public List<DialogueResponse> Responses;
 
     public eDialogueResponse GetCardTier(DialogueCardSO card)

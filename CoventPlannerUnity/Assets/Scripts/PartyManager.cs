@@ -11,18 +11,25 @@ public class PartyManager : MonoBehaviour
 
     private GameplayAdmin.eGameState ThisState = GameplayAdmin.eGameState.Party;
 
+    private List<eNPC> TalkedTo = new List<eNPC>();
 
 
     private void OnEnable()
     {
         GameplayAdmin.StateChangeActivations += UpdateState;
+        GameplayAdmin.ResetRunEvent += ResetRun;
     }
 
     private void OnDisable()
     {
         GameplayAdmin.StateChangeActivations -= UpdateState;
+        GameplayAdmin.ResetRunEvent -= ResetRun;
     }
 
+    private void ResetRun()
+    {
+        TalkedTo.Clear();
+    }
 
     private void Awake()
     {
@@ -42,5 +49,15 @@ public class PartyManager : MonoBehaviour
     public void SetActive(bool state)
     {
         SceneContainer.gameObject.SetActive(state);
+    }
+
+    public bool AlreadyTalked(eNPC npc)
+    {
+        return TalkedTo.Contains(npc);
+    }
+
+    public void AddToTalked(eNPC npc)
+    {
+        TalkedTo.Add(npc);
     }
 }

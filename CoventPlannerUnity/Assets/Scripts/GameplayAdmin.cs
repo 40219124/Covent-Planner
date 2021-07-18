@@ -14,6 +14,7 @@ public class GameplayAdmin : MonoBehaviour
     private ResetMenu ResetMenu;
 
     public static event System.Action StateChangeActivations;
+    public static event System.Action ResetRunEvent;
 
     public static GameplayAdmin Instance { get; private set; }
 
@@ -29,7 +30,6 @@ public class GameplayAdmin : MonoBehaviour
     }
     public eGameState GameState { get; private set; }
 
-    private int RunScore = 0;
     private List<NPCToScore> NPCScores = new List<NPCToScore>();
 
     private void Awake()
@@ -111,11 +111,17 @@ public class GameplayAdmin : MonoBehaviour
     private IEnumerator ResetRoutine()
     {
         yield return null;
-        ControlAdmin.Instance.ClearAllAndLoad(ControlAdmin.eSceneName.GameplayAdminScene);
+        ResetRunEvent?.Invoke();
+        GameState = eGameState.Running | eGameState.Party;
+        DialogueScreen.Instance.PlayPreEntrance();
+        CardDeck.ResetDeck();
+        NPCScores.Clear();
     }
 
     public void NoMoreRuns()
     {
         DialogueScreen.Instance.PlayEnding();
+        CardDeck.ResetDeck();
+        NPCScores.Clear();
     }
 }

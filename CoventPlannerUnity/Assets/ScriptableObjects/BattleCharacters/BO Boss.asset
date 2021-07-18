@@ -19,6 +19,7 @@ MonoBehaviour:
   VibeText: '*She''s your boss.*'
   ClosingText: Okay kid, I'm sure you don't want to be talking to your boss this
     whole evening, I'll let you go!
+  NPCType: 2
   Responses:
   - DialogueCard: {fileID: 11400000, guid: c29cfaaac058ce549b014901af8b8fa4, type: 2}
     ResponseTier: 0

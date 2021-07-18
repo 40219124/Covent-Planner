@@ -30,11 +30,29 @@ public class PlayerMovementController : MonoBehaviour
 
     private Animator Animator;
 
+    private Vector3 StartPos;
+
+    private void OnEnable()
+    {
+        GameplayAdmin.ResetRunEvent += ResetRun;
+    }
+    private void OnDisable()
+    {
+        GameplayAdmin.ResetRunEvent -= ResetRun;
+    }
+    private void ResetRun()
+    {
+        transform.position = StartPos;
+        SetFacing(eFourDirs.Down);
+        Ending = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Animator = GetComponent<Animator>();
         SetFacing(eFourDirs.Down);
+        StartPos = transform.position;
     }
 
     // Update is called once per frame
@@ -63,6 +81,7 @@ public class PlayerMovementController : MonoBehaviour
             Ending = false;
         }
     }
+
 
     private void TakeDirInput()
     {
@@ -238,7 +257,13 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (hit.collider.CompareTag("NPC"))
             {
-                GameplayAdmin.Instance.StartBattleWith(hit.collider.GetComponent<NPCController>().GetDetails());
+                BattleOpponentSO npcDetails = hit.collider.GetComponent<NPCController>().GetDetails();
+                if (PartyManager.Instance.AlreadyTalked(npcDetails.NPCType))
+                {
+                    break;
+                }
+                PartyManager.Instance.AddToTalked(npcDetails.NPCType);
+                GameplayAdmin.Instance.StartBattleWith(npcDetails);
                 break;
             }
         }

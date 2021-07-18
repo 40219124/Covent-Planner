@@ -25,8 +25,6 @@ public class BattleManager : MonoBehaviour
     private float PowerC = 2.0f;
 
     public TextBoxFiller DialogueText;
-    [SerializeField]
-    private float TimePerChar = 0.05f;
 
     public BattleOpponentSO Opponent { get; private set; }
 

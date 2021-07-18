@@ -23,4 +23,12 @@ public static class CardDeck
             Deck.Add(new CardInstance(card));
         }
     }
+
+    public static void ResetDeck()
+    {
+        foreach(CardInstance card in Deck)
+        {
+            card.Playable = true;
+        }
+    }
 }

@@ -21,6 +21,8 @@ public class DialogueScreen : MonoBehaviour
 
     private Camera MainCamera;
 
+    private bool PlayingEnding = false;
+
     private void Awake()
     {
         Instance = this;
@@ -59,6 +61,7 @@ public class DialogueScreen : MonoBehaviour
     public void PlayEnding()
     {
         StartCoroutine(PlayScenes(new List<DialogueCutsceneSO>() { RealEnding }));
+        PlayingEnding = true;
     }
 
     private IEnumerator PlayScenes(List<DialogueCutsceneSO> scenes)
@@ -77,6 +80,11 @@ public class DialogueScreen : MonoBehaviour
         }
         yield return null;
         CleanTools();
+        if (PlayingEnding)
+        {
+            // ~~~ Return to menu scene
+            yield break;
+        }
         yield return null;
         SetVisible(false);
         // Resume game
