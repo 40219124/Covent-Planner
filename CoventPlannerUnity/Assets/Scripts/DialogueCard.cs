@@ -26,11 +26,11 @@ public class DialogueCard : MonoBehaviour
         CardSprite.sprite = CardDetails.Object.Sprite;
         CardSprite.color = Color.white;
 
-       // TextElement.text = CardDetails.Object.Body;
-
-        SetUsable(card.Playable);
+        // TextElement.text = CardDetails.Object.Body;
 
         ShowMatchup();
+        SetUsable(card.Playable);
+
     }
 
     public void SetHandLocation(int location)
@@ -69,6 +69,7 @@ public class DialogueCard : MonoBehaviour
         if (score != eDialogueResponse.none)
         {
             // ~~~ display helpful information
+            // CardSprite.color = ColourFromMatchup(score);
 
         }
     }
@@ -116,7 +117,7 @@ public class DialogueCard : MonoBehaviour
         }
         else
         {
-            CardSprite.color = Color.white;
+            //CardSprite.color = Color.white;
         }
     }
 

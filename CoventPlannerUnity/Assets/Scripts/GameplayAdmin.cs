@@ -86,4 +86,9 @@ public class GameplayAdmin : MonoBehaviour
             BattleManager.Instance.StartBattle();
         }
     }
+
+    public void EndRun()
+    {
+        CardLibrary.Instance.CommitNewKnowledge();
+    }
 }

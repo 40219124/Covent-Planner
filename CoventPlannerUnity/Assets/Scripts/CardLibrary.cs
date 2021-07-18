@@ -27,6 +27,16 @@ public class CardLibrary : MonoBehaviour
 
 
         MatchupKnownTable = new bool[OpponentObjects.AllOpponents.Count, CardObjects.AllCards.Count];
+        RetrieveKnowledge();
+    }
+
+    private void OnDisable()
+    {
+        if(FutureKnowledgeCoords.Count > 0)
+        {
+            CommitNewKnowledge();
+        }
+        StoreKnowledge();
     }
 
     public void CombinationPlayed(BattleOpponentSO opponent, DialogueCardSO card)
@@ -73,4 +83,29 @@ public class CardLibrary : MonoBehaviour
     }
 
     // ~~~ Some serialization/deserialization things
+    public void RetrieveKnowledge()
+    {
+        for (int y = 0; y < CardObjects.AllCards.Count; ++y)
+        {
+            for (int x = 0; x < OpponentObjects.AllOpponents.Count; ++x)
+            {
+                string key = $"MuTable{x}{y}";
+                if (PlayerPrefs.HasKey(key))
+                {
+                    MatchupKnownTable[x,y] = (PlayerPrefs.GetInt(key) == 1);
+                }
+            }
+        }
+    }
+
+    public void StoreKnowledge()
+    {
+        for (int y = 0; y < CardObjects.AllCards.Count; ++y)
+        {
+            for (int x = 0; x < OpponentObjects.AllOpponents.Count; ++x)
+            {
+                PlayerPrefs.SetInt($"MuTable{x}{y}", (MatchupKnownTable[x, y] ? 1 : 0));
+            }
+        }
+    }
 }
