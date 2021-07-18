@@ -18,6 +18,14 @@ public class GlobalAudioController : MonoBehaviour
         camera = Camera.main;
     }
 
+    private void OnEnable()
+    {
+        BattleManager.CardPlayedEvent +=
+    }
+
+    //battlemanager.instance.opponent
+    PlayBattleOutcome
+
     // Update is called once per frame
     void Update()
     {

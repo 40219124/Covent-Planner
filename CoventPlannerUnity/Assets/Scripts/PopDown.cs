@@ -22,6 +22,14 @@ public class PopDown : MonoBehaviour
             SetUp();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Toggle();
+        }
+    }
+
     public void SetDown()
     {
         rt.localPosition = downPos;
