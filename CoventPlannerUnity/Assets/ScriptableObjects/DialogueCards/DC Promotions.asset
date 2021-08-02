@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC Promotions
   m_EditorClassIdentifier: 
   Title: Promotions
-  Sprite: {fileID: 6084249756908604392, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: b941e48fbf56eda4b895b948f71b6088, type: 3}
   Body: Speculate about promotions.

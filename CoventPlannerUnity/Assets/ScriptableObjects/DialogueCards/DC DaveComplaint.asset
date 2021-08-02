@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC DaveComplaint
   m_EditorClassIdentifier: 
   Title: Dave Complaint
-  Sprite: {fileID: -2613411450045547498, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: 33446b4a6b7ded544b5b2feed7f22c66, type: 3}
   Body: Complain about Dave.

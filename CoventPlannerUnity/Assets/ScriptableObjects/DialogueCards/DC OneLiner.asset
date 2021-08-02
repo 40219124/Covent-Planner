@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC OneLiner
   m_EditorClassIdentifier: 
   Title: One-Liner
-  Sprite: {fileID: 4800566814532983255, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: 3b322e54651522447ae22afdd729d966, type: 3}
   Body: Witty one-liner.

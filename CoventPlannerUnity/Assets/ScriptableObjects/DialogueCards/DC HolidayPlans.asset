@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC HolidayPlans
   m_EditorClassIdentifier: 
   Title: Holiday
-  Sprite: {fileID: 6220208007999549204, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: 99888926f4d431a4a880e5ad04012f30, type: 3}
   Body: Ask about holiday plans.

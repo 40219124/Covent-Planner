@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: Outside4
   m_EditorClassIdentifier: 
-  Line: Come on in.
+  Line: '"You''re the one who was hired just recently aren''t you?"'
   Background: {fileID: 0}
   SecondsPerChar: -1
   UseColour: 1

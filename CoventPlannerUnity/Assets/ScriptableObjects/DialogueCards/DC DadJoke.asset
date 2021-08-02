@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC DadJoke
   m_EditorClassIdentifier: 
   Title: Dad-Joke
-  Sprite: {fileID: -2888899937977690089, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: 2602f668e846eaf48836d4b93e25edac, type: 3}
   Body: Dad-Joke.

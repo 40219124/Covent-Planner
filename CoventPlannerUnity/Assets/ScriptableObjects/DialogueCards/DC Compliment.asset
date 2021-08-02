@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC Compliment
   m_EditorClassIdentifier: 
   Title: Compliment
-  Sprite: {fileID: -6663811380663864060, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: 5b06213fcd873bb4f8c49af777ea92d3, type: 3}
   Body: Give a sincere compliment.

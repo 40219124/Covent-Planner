@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC Neutral
   m_EditorClassIdentifier: 
   Title: Neutral Opinion
-  Sprite: {fileID: -6555575649291838755, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: 367be527674048944b93aeca2050bdab, type: 3}
   Body: Neutral opinion about a sensitive topic.

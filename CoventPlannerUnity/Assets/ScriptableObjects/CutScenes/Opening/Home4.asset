@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: Home4
   m_EditorClassIdentifier: 
-  Line: We may be new, but we know a few people already. Let's focus on them.
-  Background: {fileID: 0}
+  Line: I've written out some things I can say... I just need to make sure i say
+    them in the right company!
+  Background: {fileID: 21300000, guid: 246d6a76818f7ed4d9f468760532f50c, type: 3}
   SecondsPerChar: -1
   UseColour: 0
   Colour: {r: 0, g: 0, b: 0, a: 0}

@@ -22,7 +22,7 @@ MonoBehaviour:
   Responses:
   - DialogueCard: {fileID: 11400000, guid: c29cfaaac058ce549b014901af8b8fa4, type: 2}
     ResponseTier: 2
-    ResponseText: "Oh my! Is that true? That\u2019s delicious, you must tell us more!"
+    ResponseText: Oh my! Is that true? That's delicious, you must tell us more!
   - DialogueCard: {fileID: 11400000, guid: fe88cf5c2ef1dfb43a2667fdb2687205, type: 2}
     ResponseTier: 0
     ResponseText: "\u2026 Alrighty then!"
@@ -34,13 +34,13 @@ MonoBehaviour:
     ResponseText: Oh, I could say the same! That robe looks so good on you!
   - DialogueCard: {fileID: 11400000, guid: f73999e56ab82c24f91af7eb2f1ff196, type: 2}
     ResponseTier: 1
-    ResponseText: "Yeah, I guess that\u2019s possible!"
+    ResponseText: Yeah, I guess that's possible!
   - DialogueCard: {fileID: 11400000, guid: c5a79ae7543a96a489d9522f1b4671b6, type: 2}
     ResponseTier: 2
     ResponseText: I know right! Life is meant to be enjoyed!
   - DialogueCard: {fileID: 11400000, guid: 1e58fab13e494a44eaece599f39da6e1, type: 2}
     ResponseTier: 1
-    ResponseText: "No big plans, I\u2019ve got to re-do some of my enchantments I\u2019ve
+    ResponseText: "No big plans, I\u2019ve got to re-do some of my enchantments I've
       been neglecting."
   - DialogueCard: {fileID: 11400000, guid: 6384f4ef0de439b468e5c107d464e1e5, type: 2}
     ResponseTier: 2
@@ -50,4 +50,4 @@ MonoBehaviour:
     ResponseText: ...Hm? Right, yes, the weather does that.
   - DialogueCard: {fileID: 11400000, guid: daec11a7f5e020f48b169491ae8ce1c0, type: 2}
     ResponseTier: 1
-    ResponseText: "I guess so, I don\u2019t like to think about such serious matters."
+    ResponseText: I guess so, I don't like to think about such serious matters.

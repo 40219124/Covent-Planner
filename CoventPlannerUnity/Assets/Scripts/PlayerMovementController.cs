@@ -190,6 +190,7 @@ public class PlayerMovementController : MonoBehaviour
         if (TravelDir == Vector2.zero)
         {
             TravelTarget = null;
+            Animator.SetBool("Moving", false);
             return;
         }
 
@@ -203,6 +204,7 @@ public class PlayerMovementController : MonoBehaviour
             {
                 Debug.Log("Hit!");
                 TravelTarget = null;
+                Animator.SetBool("Moving", false);
                 return;
             }
             else if (hit.collider.CompareTag("Finish"))
@@ -215,6 +217,7 @@ public class PlayerMovementController : MonoBehaviour
             Debug.Log("Miss!");
         }
         TravelTarget = new Vector2Int(Mathf.RoundToInt(posPlusDir.x), Mathf.RoundToInt(posPlusDir.y));
+        Animator.SetBool("Moving", true);
         // ~~~ Check a grid of empty/not-empty squares for validity
     }
 
@@ -236,6 +239,7 @@ public class PlayerMovementController : MonoBehaviour
             remainder = dir.magnitude / Speed;
             transform.position = (Vector3Int)TravelTarget.Value;
             TravelTarget = null;
+            Animator.SetBool("Moving", false);
         }
         else
         {

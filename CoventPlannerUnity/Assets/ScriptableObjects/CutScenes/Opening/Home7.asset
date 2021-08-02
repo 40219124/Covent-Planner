@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: Home7
   m_EditorClassIdentifier: 
-  Line: Let's just go through them and figure this out...
-  Background: {fileID: 0}
+  Line: Let's go through this one more time to make sure I get it right...!
+  Background: {fileID: 21300000, guid: 2583061805fa83b46b43faff2cfa9a60, type: 3}
   SecondsPerChar: -1
   UseColour: 0
   Colour: {r: 0, g: 0, b: 0, a: 0}

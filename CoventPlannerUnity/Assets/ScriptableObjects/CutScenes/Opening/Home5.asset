@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: Home5
   m_EditorClassIdentifier: 
-  Line: If we work out the right thing to say to everyone then nothing can go wrong.
-  Background: {fileID: 0}
+  Line: I know a few people already, Cindy was nice to me when we met so I can talk
+    with her...
+  Background: {fileID: 21300000, guid: c730cc8cdfd364d4db4c6dd527da65a8, type: 3}
   SecondsPerChar: -1
   UseColour: 0
   Colour: {r: 0, g: 0, b: 0, a: 0}

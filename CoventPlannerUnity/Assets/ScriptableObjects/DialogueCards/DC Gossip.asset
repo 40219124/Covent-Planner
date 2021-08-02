@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DC Gossip
   m_EditorClassIdentifier: 
   Title: Gossip
-  Sprite: {fileID: 6034864100499761545, guid: 0ac2feaf8ffd0594bb69fd713eb38d27, type: 3}
+  Sprite: {fileID: 21300000, guid: 8b4c0c1a7014d8f419cfd5f909ffe6b5, type: 3}
   Body: A juicy piece of gossip.

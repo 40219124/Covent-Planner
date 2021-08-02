@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: PostMenu1
   m_EditorClassIdentifier: 
-  Line: It's time for the real thing!
+  Line: Ok, this is the real thing!
   Background: {fileID: 21300000, guid: c31ab66aad2033a4b947f416d19afee6, type: 3}
   SecondsPerChar: -1
   UseColour: 0

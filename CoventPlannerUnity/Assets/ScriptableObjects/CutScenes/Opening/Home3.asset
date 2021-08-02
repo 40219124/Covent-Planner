@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: Home3
   m_EditorClassIdentifier: 
-  Line: It's not a big deal, we just have to plan.
+  Line: I can do this! I'm wearing my best robes and I have a plan.
   Background: {fileID: 0}
   SecondsPerChar: -1
   UseColour: 0

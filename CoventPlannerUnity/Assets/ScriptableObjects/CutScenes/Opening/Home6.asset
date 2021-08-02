@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: Home6
   m_EditorClassIdentifier: 
-  Line: I've got my conversation pieces written down.
+  Line: Some of the accountants were really helpful as well, and I should greet the
+    Boss too.
   Background: {fileID: 0}
   SecondsPerChar: -1
   UseColour: 0

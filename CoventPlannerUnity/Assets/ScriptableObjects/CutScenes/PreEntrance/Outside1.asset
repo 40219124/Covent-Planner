@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c5332244f9f844e880e011d2e3c465, type: 3}
   m_Name: Outside1
   m_EditorClassIdentifier: 
-  Line: Hi.
-  Background: {fileID: 21300000, guid: d4953889f0ccbd6409142f222eb50ac8, type: 3}
+  Line: Ok, they are going to greet me...
+  Background: {fileID: 21300000, guid: aab938cf71a7c924389ec027fa0baef6, type: 3}
   SecondsPerChar: -1
-  UseColour: 1
+  UseColour: 0
   Colour: {r: 0.8018868, g: 0.24184261, b: 0.018912422, a: 1}
